@@ -49,3 +49,17 @@ body:has(main .detail)>footer{padding:24px 6vw;border-top:1px solid var(--line);
 body:has(main .detail)>footer a{color:var(--accent)}
 @media(max-width:750px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.story .row{grid-template-columns:1fr;gap:10px}.project-gallery .designs{grid-template-columns:1fr}}
 @media(max-width:600px){body:has(main .detail)>header{padding:18px 5vw;gap:14px}body:has(main .detail)>header nav{gap:14px;font-size:8px}.detail{padding:38px 5vw 45px}.detail .back{margin-bottom:32px}.facts{gap:16px}.story{padding:0 5vw 45px}.project-gallery{padding:48px 5vw 65px!important}body:has(main .detail)>footer{padding:20px 5vw;flex-wrap:wrap}}
+
+/* Selected work: clean typographic list, no thumbnails or image placeholders */
+#project-grid.project-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+#project-grid.project-list .project-list-item{display:grid;grid-template-columns:54px minmax(0,1fr) minmax(130px,220px) 32px;align-items:center;gap:22px;padding:25px 4px;border-bottom:1px solid var(--line);text-decoration:none;min-height:0;background:transparent;transition:padding .25s ease,background .25s ease}
+#project-grid.project-list .project-list-item:hover{padding-left:16px;padding-right:16px;background:rgba(255,255,255,.025)}
+.project-list-number{font:10px var(--mono);color:var(--accent);letter-spacing:.12em}
+.project-list-copy{display:flex;flex-direction:column;gap:5px;min-width:0}
+.project-list-copy small{font:8px var(--mono);letter-spacing:.16em;color:var(--muted)}
+.project-list-copy strong{font-size:clamp(23px,3.3vw,38px);font-weight:650;letter-spacing:-.065em;color:var(--text);line-height:1.1}
+.project-list-copy em{font-style:normal;font-size:12px;color:var(--muted);line-height:1.5}
+.project-list-category{font:8px var(--mono);letter-spacing:.1em;color:var(--muted);text-align:right}
+.project-list-arrow{font-size:21px;color:var(--accent);text-align:right;transition:transform .2s ease}
+.project-list-item:hover .project-list-arrow{transform:translate(3px,-3px)}
+@media(max-width:650px){#project-grid.project-list .project-list-item{grid-template-columns:30px minmax(0,1fr) 22px;gap:12px;padding:20px 0}.project-list-category{display:none}.project-list-copy strong{font-size:25px}.project-list-copy em{font-size:11px}}
