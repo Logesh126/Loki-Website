@@ -156,3 +156,12 @@ body>main>.project-gallery figure:hover img,
 @media (prefers-reduced-motion: reduce) {
   *, *:before, *:after { scroll-behavior: auto!important; animation-duration: .01ms!important; animation-iteration-count: 1!important; transition-duration: .01ms!important; }
 }
+
+
+/* Contact and footer social link layout */
+.social-links,.footer-links{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px}
+.social-links{justify-content:flex-end}
+.footer-links{justify-content:flex-end}
+.social-links a,.footer-links a{font:10px 'DM Mono',monospace;letter-spacing:.08em;text-decoration:none;color:inherit;opacity:.78;transition:opacity .25s ease,transform .25s ease}
+.social-links a:hover,.footer-links a:hover{opacity:1;transform:translateY(-2px)}
+@media(max-width:700px){.social-links,.footer-links{justify-content:flex-start;gap:14px 18px}.contact-bottom{align-items:flex-start;flex-direction:column;gap:22px}}
