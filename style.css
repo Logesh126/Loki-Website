@@ -93,3 +93,7 @@ body>main>.project-gallery .designs,
 .project-gallery .designs{grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))!important;gap:16px!important}
 @media(max-width:750px){body>main>.project-gallery .designs,.project-gallery .designs{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}}
 @media(max-width:380px){body>main>.project-gallery .designs,.project-gallery .designs{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}}
+
+
+/* Hide image file-name captions in project galleries */
+body>main>.project-gallery figcaption,.project-gallery figcaption{display:none!important}
