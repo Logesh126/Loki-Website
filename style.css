@@ -165,3 +165,21 @@ body>main>.project-gallery figure:hover img,
 .social-links a,.footer-links a{font:10px 'DM Mono',monospace;letter-spacing:.08em;text-decoration:none;color:inherit;opacity:.78;transition:opacity .25s ease,transform .25s ease}
 .social-links a:hover,.footer-links a:hover{opacity:1;transform:translateY(-2px)}
 @media(max-width:700px){.social-links,.footer-links{justify-content:flex-start;gap:14px 18px}.contact-bottom{align-items:flex-start;flex-direction:column;gap:22px}}
+
+
+/* Client projects and external brand links */
+.client-work-heading{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:end;margin:42px 0 48px}
+.client-work-heading h2{font-size:clamp(42px,7vw,82px);line-height:.98;letter-spacing:-.08em;margin:0}
+.client-work-heading h2 em{font-family:Georgia,serif;font-weight:400}
+.client-work-heading>p{max-width:430px;color:var(--muted);font-size:14px;line-height:1.8;margin:0 0 5px}
+.client-work-list{border-top:1px solid var(--line)}
+.client-work-item{display:grid;grid-template-columns:48px minmax(0,1fr) minmax(170px,auto);gap:20px;align-items:center;padding:24px 4px;border-bottom:1px solid var(--line);transition:padding .25s ease,background .25s ease}
+.client-work-item:hover{padding-left:14px;padding-right:14px;background:rgba(255,255,255,.025)}
+.client-work-number{font:10px var(--mono);color:var(--accent);letter-spacing:.12em}
+.client-work-item h3{font-size:clamp(21px,3vw,31px);letter-spacing:-.055em;margin:0 0 4px}
+.client-work-item p{font-size:12px;color:var(--muted);margin:0}
+.client-work-links{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px 18px}
+.client-work-links a,.client-work-links span{font:9px var(--mono);letter-spacing:.08em;text-decoration:none;color:var(--text);opacity:.76;transition:opacity .2s ease,transform .2s ease}
+.client-work-links a:hover{opacity:1;transform:translateY(-2px)}
+.client-work-links span{color:var(--muted)}
+@media(max-width:700px){.client-work-heading{grid-template-columns:1fr;gap:18px;margin:32px 0}.client-work-item{grid-template-columns:28px minmax(0,1fr);gap:12px;padding:20px 0}.client-work-links{grid-column:2;justify-content:flex-start;margin-top:3px}.client-work-item h3{font-size:24px}}
