@@ -63,3 +63,27 @@ body:has(main .detail)>footer a{color:var(--accent)}
 .project-list-arrow{font-size:21px;color:var(--accent);text-align:right;transition:transform .2s ease}
 .project-list-item:hover .project-list-arrow{transform:translate(3px,-3px)}
 @media(max-width:650px){#project-grid.project-list .project-list-item{grid-template-columns:30px minmax(0,1fr) 22px;gap:12px;padding:20px 0}.project-list-category{display:none}.project-list-copy strong{font-size:25px}.project-list-copy em{font-size:11px}}
+
+/* Explicit project-page layout overrides (avoid relying on :has selectors) */
+body>header{padding:22px 6vw 18px!important;border-bottom:1px solid var(--line)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important;flex-wrap:wrap!important;background:var(--bg)!important}
+body>header nav{display:flex!important;align-items:center!important;gap:28px!important;font:10px var(--mono)!important;letter-spacing:.1em!important;text-transform:uppercase!important}
+body>header small{color:var(--muted)!important;font:9px var(--mono)!important;letter-spacing:.14em!important}
+body>main{display:block!important}
+body>main>.detail{display:block!important;max-width:1440px!important;margin:0 auto!important;padding:58px 6vw 55px!important}
+body>main>.detail .back{display:inline-block!important;margin:0 0 42px!important;color:var(--accent)!important;font:9px var(--mono)!important;letter-spacing:.12em!important}
+body>main>.detail .eyebrow{font:9px var(--mono)!important;letter-spacing:.16em!important;color:var(--accent)!important}
+body>main>.detail h1{font-size:clamp(54px,9vw,112px)!important;line-height:.94!important;letter-spacing:-.09em!important;margin:20px 0!important;font-weight:750!important}
+body>main>.detail .lede{max-width:700px!important;color:#c9c4ce!important;font-size:clamp(16px,2vw,21px)!important;line-height:1.7!important}
+body>main>.detail .facts{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:20px!important;margin-top:45px!important;padding:22px 0!important;border-top:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
+body>main>.detail .facts>div{display:flex!important;flex-direction:column!important;gap:8px!important}
+body>main>.detail .facts label{color:var(--muted)!important;font:8px var(--mono)!important;letter-spacing:.14em!important}
+body>main>.detail .facts b{font-size:12px!important;line-height:1.6!important}
+body>main>.project-gallery{background:#111018!important;color:var(--text)!important;padding:65px 6vw 90px!important}
+body>main>.project-gallery h2{font-size:clamp(38px,6vw,72px)!important;letter-spacing:-.07em!important;color:var(--text)!important;margin:12px 0 30px!important}
+body>main>.project-gallery .designs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important}
+body>main>.project-gallery figure{background:#191720!important;border:1px solid var(--line)!important;padding:10px!important;margin:0!important}
+body>main>.project-gallery figure img{width:100%!important;height:auto!important;max-height:640px!important;object-fit:contain!important;background:#0c0b10!important;display:block!important}
+body>main>.project-gallery figcaption{color:var(--muted)!important;font:9px var(--mono)!important;letter-spacing:.06em!important;padding:10px 2px 2px!important}
+body>footer{padding:24px 6vw!important;border-top:1px solid var(--line)!important;display:flex!important;justify-content:space-between!important;align-items:center!important;gap:15px!important;color:var(--muted)!important;font:8px var(--mono)!important;letter-spacing:.12em!important}
+@media(max-width:750px){body>main>.detail .facts{grid-template-columns:repeat(2,minmax(0,1fr))!important}body>main>.project-gallery .designs{grid-template-columns:1fr!important}}
+@media(max-width:600px){body>header{padding:18px 5vw!important;gap:14px!important}body>header nav{gap:14px!important;font-size:8px!important}body>main>.detail{padding:38px 5vw 42px!important}body>main>.project-gallery{padding:48px 5vw 65px!important}body>footer{padding:20px 5vw!important;flex-wrap:wrap!important}}
