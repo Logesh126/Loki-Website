@@ -87,3 +87,9 @@ body>main>.project-gallery figcaption{color:var(--muted)!important;font:9px var(
 body>footer{padding:24px 6vw!important;border-top:1px solid var(--line)!important;display:flex!important;justify-content:space-between!important;align-items:center!important;gap:15px!important;color:var(--muted)!important;font:8px var(--mono)!important;letter-spacing:.12em!important}
 @media(max-width:750px){body>main>.detail .facts{grid-template-columns:repeat(2,minmax(0,1fr))!important}body>main>.project-gallery .designs{grid-template-columns:1fr!important}}
 @media(max-width:600px){body>header{padding:18px 5vw!important;gap:14px!important}body>header nav{gap:14px!important;font-size:8px!important}body>main>.detail{padding:38px 5vw 42px!important}body>main>.project-gallery{padding:48px 5vw 65px!important}body>footer{padding:20px 5vw!important;flex-wrap:wrap!important}}
+
+/* Responsive project image galleries: 4–6 columns on wide screens */
+body>main>.project-gallery .designs,
+.project-gallery .designs{grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))!important;gap:16px!important}
+@media(max-width:750px){body>main>.project-gallery .designs,.project-gallery .designs{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}}
+@media(max-width:380px){body>main>.project-gallery .designs,.project-gallery .designs{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}}
