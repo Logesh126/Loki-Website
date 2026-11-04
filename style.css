@@ -461,3 +461,23 @@ button,.button,.btn,.resume-nav-link{font-family:var(--font-ui)!important;font-s
   small,.eyebrow,.label,.meta,.metadata,.project-meta,.section-label,.caption,.tag,.kicker,
   .header-note,.section-kicker,.hero-meta,.hero-index,.text-link,footer{font-size:12px!important}
 }
+
+
+/* Skills marquee */
+.skills-marquee{margin-top:clamp(56px,8vw,104px);padding:26px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.skills-marquee-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:22px;padding:0 5vw}
+.skills-marquee-heading .eyebrow{margin:0}
+.skills-marquee-heading>span{font-size:12px;font-weight:500;color:var(--muted)}
+.skills-marquee-window{overflow:hidden;width:100%}
+.skills-marquee-track{display:flex;width:max-content;animation:skills-marquee-flow 72s linear infinite}
+.skills-marquee:hover .skills-marquee-track{animation-play-state:paused}
+.skills-marquee-group{display:flex;align-items:center;gap:10px;padding-right:10px;white-space:nowrap}
+.skills-marquee-group>span{display:inline-flex;align-items:center;min-height:38px;padding:8px 15px;border:1px solid var(--line);border-radius:999px;color:var(--text);font-size:13px;font-weight:500;line-height:1.2}
+.skills-marquee-group>.skill-category{margin-left:22px;border-color:var(--accent);color:var(--accent);font-size:12px;font-weight:650}
+@keyframes skills-marquee-flow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:650px){
+ .skills-marquee{margin-top:52px;padding:22px 0}
+ .skills-marquee-heading{padding:0 5vw}
+ .skills-marquee-group>span{font-size:12px;min-height:35px;padding:7px 12px}
+}
+@media(prefers-reduced-motion:reduce){.skills-marquee-track{animation:none}}
