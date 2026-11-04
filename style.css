@@ -380,3 +380,84 @@ footer,.footer-links,.social-links a,.client-work-number,.client-work-links a,
 html,body,body * ,body *::before,body *::after{
   text-transform:none!important;
 }
+
+
+/* Unified typography system — one typeface, fixed hierarchy, sentence case */
+:root{
+  --font-ui:'Manrope',sans-serif;
+  --font-display:'Manrope',sans-serif;
+  --font-body:'Manrope',sans-serif;
+  --font-label:'Manrope',sans-serif;
+  --size-display:clamp(52px,7vw,88px);
+  --size-h2:clamp(36px,4.5vw,56px);
+  --size-h3:24px;
+  --size-h4:20px;
+  --size-body:16px;
+  --size-small:12px;
+  --size-nav:14px;
+}
+html,body,body *{
+  font-family:var(--font-ui)!important;
+  text-transform:none!important;
+}
+body{font-size:var(--size-body)!important;font-weight:400!important;line-height:1.7!important}
+h1,body h1,.hero h1,.detail h1{
+  font-family:var(--font-display)!important;
+  font-size:var(--size-display)!important;
+  font-weight:700!important;
+  line-height:1.02!important;
+  letter-spacing:-.065em!important;
+}
+h2,body h2,.intro h2,.work-heading h2,.testimonial-layout h2,.marquee-heading h2,.project-gallery h2{
+  font-family:var(--font-display)!important;
+  font-size:var(--size-h2)!important;
+  font-weight:700!important;
+  line-height:1.08!important;
+  letter-spacing:-.05em!important;
+}
+h3,body h3,.project-card-copy h3,.story .row h2,.client-work-item h3{
+  font-family:var(--font-display)!important;
+  font-size:var(--size-h3)!important;
+  font-weight:650!important;
+  line-height:1.2!important;
+  letter-spacing:-.04em!important;
+}
+h4{font-size:var(--size-h4)!important;font-weight:650!important;line-height:1.25!important}
+p,li,.lede,.intro-copy p,.hero-bottom p,.work-heading>p,.story .row p,.client-work-heading>p,.client-work-item p,.testimonial-note p{
+  font-family:var(--font-body)!important;
+  font-size:var(--size-body)!important;
+  font-weight:400!important;
+  line-height:1.7!important;
+}
+small,.eyebrow,.label,.meta,.metadata,.project-meta,.section-label,.caption,.tag,.kicker,
+.header-note,.section-kicker,.hero-meta,.hero-index,.text-link,.main-nav,body>header nav,
+body>header small,.detail .back,.facts label,.facts b,.project-list-number,
+.project-list-copy small,.project-list-copy em,.project-list-category,.project-external-links a,
+.project-card-copy small,.skills-line,.archive-cta,.loading,footer,.footer-links,.social-links a,
+.client-work-number,.client-work-links a,.client-work-links span,.project-gallery figcaption,
+.mobile-nav-links a{
+  font-family:var(--font-label)!important;
+  font-size:var(--size-small)!important;
+  font-weight:500!important;
+  line-height:1.5!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+nav a,.main-nav a,.mobile-nav-links a,body>header nav a{
+  font-size:var(--size-nav)!important;
+  font-weight:500!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+button,.button,.btn,.resume-nav-link{font-family:var(--font-ui)!important;font-size:14px!important;font-weight:600!important}
+.hero h1{max-width:1100px}
+.project-list-copy strong{font-size:var(--size-h3)!important;font-weight:650!important}
+.detail .lede{max-width:700px}
+@media(max-width:650px){
+  :root{--size-display:clamp(44px,11vw,64px);--size-h2:clamp(30px,8vw,40px);--size-h3:22px}
+  body{font-size:16px!important}
+  p,li,.lede,.intro-copy p,.hero-bottom p,.story .row p{font-size:16px!important}
+  nav a,.main-nav a,.mobile-nav-links a,body>header nav a{font-size:14px!important}
+  small,.eyebrow,.label,.meta,.metadata,.project-meta,.section-label,.caption,.tag,.kicker,
+  .header-note,.section-kicker,.hero-meta,.hero-index,.text-link,footer{font-size:12px!important}
+}
