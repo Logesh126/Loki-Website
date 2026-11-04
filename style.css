@@ -374,3 +374,9 @@ footer,.footer-links,.social-links a,.client-work-number,.client-work-links a,
   .hero-index{align-self:center;margin-top:14px}
 }
 @media(prefers-reduced-motion:reduce){.hero-index span{animation:none}}
+
+
+/* Global rule: never force uppercase anywhere in the portfolio */
+html,body,body * ,body *::before,body *::after{
+  text-transform:none!important;
+}
