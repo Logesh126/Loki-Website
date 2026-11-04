@@ -481,3 +481,7 @@ button,.button,.btn,.resume-nav-link{font-family:var(--font-ui)!important;font-s
  .skills-marquee-group>span{font-size:12px;min-height:35px;padding:7px 12px}
 }
 @media(prefers-reduced-motion:reduce){.skills-marquee-track{animation:none}}
+
+
+/* Final explicit casing safeguard for every rendered element */
+html body :where(*, *::before, *::after){text-transform:none!important}
