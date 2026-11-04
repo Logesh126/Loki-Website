@@ -22,6 +22,71 @@
 @media(max-width:800px){.meta-grid{grid-template-columns:repeat(3,1fr)}.section-head{grid-template-columns:1fr;gap:15px}.service-grid{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:repeat(2,1fr)}.image-grid{grid-template-columns:1fr}.image-card img{max-height:560px}.collateral-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.site-header{padding:18px 5vw;flex-wrap:wrap}.menu-toggle{display:block}.nav{display:none;order:3;width:100%;align-items:flex-start;flex-direction:column;gap:20px;padding:12px 0 5px}.nav.open{display:flex}.hero{padding:55px 0 42px}.meta-grid{grid-template-columns:repeat(2,1fr);gap:18px}.hero-visual{margin-bottom:70px}.visual-caption{font-size:8px;flex-direction:column}.section{padding:62px 0}.service-grid,.process,.challenge-list,.collection{grid-template-columns:1fr 1fr}.collateral-grid{grid-template-columns:1fr 1fr}.outcome ul{grid-template-columns:1fr}.closing{padding:70px 0}.section-head{margin-bottom:28px}footer{flex-direction:column}}
 @media(max-width:390px){.service-grid,.process,.challenge-list,.collection,.collateral-grid{grid-template-columns:1fr}}
+
+/* CipherMutex header and hero alignment correction */
+.site-header{
+  width:100%;
+  min-height:76px;
+  padding:18px 5vw!important;
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:24px!important;
+}
+.site-header>.logo{grid-column:1;grid-row:1;justify-self:start}
+.site-header>.mobile-menu-toggle{display:none!important}
+.site-header>.mobile-nav-links{
+  grid-column:2;grid-row:1;
+  display:flex!important;
+  flex-direction:row!important;
+  justify-content:center!important;
+  align-items:center!important;
+  gap:clamp(20px,3vw,42px)!important;
+  width:auto!important;
+  padding:0!important;
+  margin:0!important;
+}
+.site-header>.header-note{
+  grid-column:3;grid-row:1;
+  justify-self:end;
+  white-space:nowrap;
+  margin:0;
+}
+.back{margin:28px 0 0!important}
+@media(max-width:600px){
+  .site-header{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-rows:auto auto auto!important;
+    gap:12px 16px!important;
+    padding:16px 5vw!important;
+  }
+  .site-header>.logo{grid-column:1;grid-row:1}
+  .site-header>.mobile-menu-toggle{
+    display:grid!important;
+    grid-column:2;grid-row:1;
+    place-items:center;
+    justify-self:end;
+    min-width:44px;min-height:44px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:transparent;
+    color:var(--text);
+    cursor:pointer;
+  }
+  .site-header>.mobile-nav-links{
+    display:none!important;
+    grid-column:1/-1;grid-row:2;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:flex-start!important;
+    gap:16px!important;
+    width:100%!important;
+    padding:12px 0 8px!important;
+  }
+  .site-header>.mobile-nav-links.open{display:flex!important}
+  .site-header>.header-note{grid-column:1/-1;grid-row:3;justify-self:start}
+}
+
 </style>
 </head>
 <body>
