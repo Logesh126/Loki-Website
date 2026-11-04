@@ -302,3 +302,75 @@ footer,.footer-links,.social-links a,.client-work-number,.client-work-links a,
   .client-work-links span,.project-gallery figcaption{font-size:12px!important}
   .main-nav a,body>header nav a,.mobile-nav-links a{font-size:14px!important}
 }
+
+
+/* Hero alignment and accessible scroll cue */
+.hero{
+  min-height:min(790px,calc(100svh - 78px));
+  padding:clamp(24px,3vw,42px) clamp(22px,5vw,76px) 30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.hero-meta{width:100%;align-items:center}
+.hero-main{
+  width:100%;
+  max-width:1240px;
+  margin:clamp(54px,8vh,92px) auto clamp(34px,5vh,58px);
+}
+.hero-main>.eyebrow{margin:0 0 24px}
+.hero h1{
+  max-width:1100px;
+  margin:0 0 clamp(28px,4vh,42px);
+  font-size:clamp(76px,12.2vw,168px);
+  line-height:.86;
+  letter-spacing:-.095em;
+}
+.hero-bottom{
+  width:100%;
+  max-width:1000px;
+  display:grid;
+  grid-template-columns:minmax(0,520px) auto;
+  align-items:end;
+  gap:clamp(30px,8vw,120px);
+}
+.hero-bottom p{margin:0;max-width:500px}
+.hero-bottom .text-link{justify-self:start;margin-bottom:5px}
+.hero-index{
+  align-self:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:max-content;
+  margin:0 auto;
+  padding:12px 18px;
+  color:var(--muted);
+  text-decoration:none;
+  font:500 13px 'Outfit',sans-serif;
+  border:1px solid var(--line);
+  border-radius:999px;
+  transition:color .25s ease,border-color .25s ease,background .25s ease;
+  cursor:pointer;
+}
+.hero-index:hover{color:var(--text);border-color:var(--accent);background:rgba(185,162,255,.07)}
+.hero-index span{
+  display:inline-block;
+  color:var(--accent);
+  font-size:18px;
+  line-height:1;
+  animation:hero-arrow-pulse 1.15s ease-in-out infinite;
+}
+@keyframes hero-arrow-pulse{
+  0%,100%{opacity:.35;transform:translateY(-3px)}
+  50%{opacity:1;transform:translateY(4px)}
+}
+@media(max-width:600px){
+  .hero{min-height:calc(100svh - 70px);padding:22px 5vw 24px}
+  .hero-main{margin:clamp(54px,10vh,78px) 0 36px}
+  .hero h1{font-size:clamp(64px,16.5vw,100px);line-height:.9;margin-bottom:28px}
+  .hero-bottom{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+  .hero-bottom p{max-width:100%}
+  .hero-index{align-self:center;margin-top:14px}
+}
+@media(prefers-reduced-motion:reduce){.hero-index span{animation:none}}
