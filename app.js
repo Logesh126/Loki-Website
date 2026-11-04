@@ -8,13 +8,13 @@
   const data=await response.json();
   const projectInfo=[
    ['ciphermutex','CipherMutex','Product design, brand communication & creative work','projects/ciphermutex.html','01',[['LIVE WEBSITE','https://www.ciphermutex.com/'],['INSTAGRAM','https://www.instagram.com/ciphermutex/']]],
-   ['pebblezapp','Pebblez','Digital product experience & interface design','projects/pebblezapp.html','02',[['LIVE WEBSITE','https://www.pebblezapp.com/collections/all-products/3186552000001364608'],['INSTAGRAM','https://www.instagram.com/pebblezapp/']]],
-   ['nesswa','Nesswa','A visual identity and digital design collection','projects/nesswa.html','03',[['INSTAGRAM','https://www.instagram.com/perricofoods/']]],
+   ['pebblezapp','Pebblezapp','Digital product experience & interface design','projects/pebblezapp.html','02',[['LIVE WEBSITE','https://www.pebblezapp.com/collections/all-products/3186552000001364608'],['INSTAGRAM','https://www.instagram.com/pebblezapp/']]],
+   ['nesswa','Nesswa','A visual identity and digital design collection','projects/nesswa.html','03',[['LIVE WEBSITE','https://nesswaelitestore.com/'],['INSTAGRAM','https://www.instagram.com/perricofoods/']]],
    ['v-study-global','V Study Global','Study-abroad brand communication & digital content','projects/v-study-global.html','04',[['INSTAGRAM','https://www.instagram.com/v_studyglobal/']]],
    ['vyess-fms','Vyess FMS','Fleet management product and visual design','projects/vyess-fms.html','05'],
-   ['marsforce','Marsforce','Selected visual communication','projects/marsforce.html','06'],
-   ['mukkani','Mukkani','Brand and visual design explorations','projects/mukkani.html','07'],
-   ['varunan-drone','VARUNAN DRONE','Aerial technology brand and visual work','projects/varunan-drone.html','08']
+   ['marsforce','Marsforce','Selected visual communication','projects/marsforce.html','06',[['LIVE WEBSITE','https://www.marsforce.in/']]],
+   ['mukkani','Mukkani','Brand and visual design explorations','projects/mukkani.html','07',[['INSTAGRAM','https://www.instagram.com/mukkani_trichy?dlrf=eXJ0ZWhsbGswZm1o']]],
+   ['varunan-drone','Varunan Drone','Aerial technology brand and visual work','projects/varunan-drone.html','08',[['INSTAGRAM','https://www.instagram.com/varunan_drone?xtok=eXB0ZDhkd2E4c2sy']]]
   ];
   const safe=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const usable=data.filter(x=>x.pages&&x.pages[0]&&!/payslip|salary|offer letter|employee|id card|intern form|agreement|contract|bank|aadhaar|pan card/i.test((x.name||'')+' '+(x.file||'')));
