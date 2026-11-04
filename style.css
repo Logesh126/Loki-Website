@@ -274,3 +274,31 @@ footer{padding:22px clamp(22px,5vw,76px)!important;display:flex;justify-content:
 .contact-link span{display:none!important}
 
 main.wrap,.wrap{max-width:none!important;width:100%} .marquee-gallery .marquee-heading{padding-left:clamp(22px,5vw,76px);padding-right:clamp(22px,5vw,76px)}
+
+
+/* Readability and sentence-case pass — shared across every page */
+small,.eyebrow,.label,.meta,.metadata,.project-meta,.section-label,.caption,.tag,.kicker,
+.header-note,.section-kicker,.hero-meta,.hero-index,.text-link,.main-nav,body>header nav,
+body>header small,.detail .back,.facts label,.facts b,.project-list-number,
+.project-list-copy small,.project-list-copy em,.project-list-category,.project-external-links a,
+.project-card-copy small,.project-card-copy p,.skills-line,.archive-cta,.loading,
+footer,.footer-links,.social-links a,.client-work-number,.client-work-links a,
+.client-work-links span,.project-gallery figcaption {
+  font-size:12px!important;
+  line-height:1.55;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+.main-nav a,body>header nav a,.mobile-nav-links a{font-size:14px!important;text-transform:none!important;letter-spacing:0!important}
+.section-kicker,.hero-meta,.hero-index,.eyebrow,.detail .eyebrow,.story .eyebrow{font-size:13px!important;text-transform:none!important;letter-spacing:0!important}
+.project-card-copy h3,.project-list-copy strong{ text-transform:none }
+@media(max-width:650px){
+  small,.eyebrow,.label,.meta,.metadata,.project-meta,.section-label,.caption,.tag,.kicker,
+  .header-note,.section-kicker,.hero-meta,.hero-index,.text-link,.main-nav,body>header nav,
+  body>header small,.detail .back,.facts label,.facts b,.project-list-number,
+  .project-list-copy small,.project-list-copy em,.project-list-category,.project-external-links a,
+  .project-card-copy small,.project-card-copy p,.skills-line,.archive-cta,.loading,
+  footer,.footer-links,.social-links a,.client-work-number,.client-work-links a,
+  .client-work-links span,.project-gallery figcaption{font-size:12px!important}
+  .main-nav a,body>header nav a,.mobile-nav-links a{font-size:14px!important}
+}
