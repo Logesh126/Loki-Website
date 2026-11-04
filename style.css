@@ -231,3 +231,23 @@ body>main>.project-gallery figure:hover img,
     margin-top:2px!important;
   }
 }
+
+
+/* Site-wide typography consistency pass */
+:root{--type-body:16px;--type-small:10px}
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100% }
+body{font-synthesis:none}
+p{font-size:clamp(15px,1.12vw,17px);line-height:1.75;font-weight:400}
+h1{font-weight:750;letter-spacing:-.065em;line-height:.98}
+h2{font-weight:700;letter-spacing:-.045em;line-height:1.06}
+h3,h4{font-weight:650;line-height:1.18}
+nav a,.nav a,.menu a{font-size:11px;font-weight:500;letter-spacing:.13em}
+small,.eyebrow,.label,.meta,.metadata,.project-meta,.section-label,.caption,.tag,.kicker{font-size:10px;line-height:1.55;font-weight:500;letter-spacing:.14em}
+button,.button,.btn{font-weight:500}
+@media(max-width:650px){
+ p{font-size:16px;line-height:1.72}
+ h1{line-height:.99}
+ h2{line-height:1.08}
+ nav a,.nav a,.menu a{font-size:11px}
+ small,.eyebrow,.label,.meta,.metadata,.project-meta,.section-label,.caption,.tag,.kicker{font-size:10px}
+}
