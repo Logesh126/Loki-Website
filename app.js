@@ -21,7 +21,7 @@
   if(grid) grid.classList.add('project-list');
   if(grid) grid.innerHTML=projectInfo.map(([key,name,desc,href,num,links=[]])=>`<div class="project-card project-list-item"><span class="project-list-number">${num}</span><span class="project-list-copy"><small>Selected project</small><a class="project-title-link" href="${href}"><strong>${safe(name)}</strong><em>${safe(desc)}</em></a><span class="project-external-links">${links.map(([label,url])=>`<a href="${url}" target="_blank" rel="noopener">${label} ↗</a>`).join('')}</span></span><span class="project-list-category">${safe(key.replace(/-/g,' ').toLowerCase())}</span><a class="project-list-arrow" href="${href}" aria-label="View ${safe(name)} project">↗</a></div>`).join('');
   const picks=usable.filter(x=>['UI/UX Design','Graphic Design','Brand Identity','Print & Stationery','Packaging Design'].includes(x.category)).slice(0,20);
-  const makeCard=x=>`<a class="marquee-item" href="#work"><img loading="lazy" src="${safe(x.pages[0])}" alt="${safe(x.name||x.category||'Selected design')}"><span>${safe(x.category||'Selected work')}</span></a>`;
+  const makeCard=x=>`<a class="marquee-item" href="#work"><img loading="lazy" decoding="async" src="${safe(x.pages[0])}" alt="${safe(x.name||x.category||'Selected design')}"><span>${safe(x.category||'Selected work')}</span></a>`;
   const split=Math.ceil(picks.length/2);const a=picks.slice(0,split).map(makeCard).join('');const b=picks.slice(split).map(makeCard).join('');
   const one=$('#marquee-one'),two=$('#marquee-two');if(one)one.innerHTML=a+a;if(two)two.innerHTML=b+b;
  }catch(error){console.error(error);if(grid)grid.innerHTML='<p class="loading">The project archive could not be loaded. Please refresh in a moment.</p>';}
