@@ -712,3 +712,41 @@ img[loading="lazy"]{content-visibility:auto}
  .testimonial-footer{font-size:9px;gap:12px}
 }
 @media(prefers-reduced-motion:reduce){.testimonial-stage .testimonial-card{transition:none;transform:none}}
+
+
+/* Keep the Varunan Drone review visually compact without changing other testimonials */
+.testimonial-stage .varunan-testimonial{
+  justify-self:center;
+  width:min(100%,760px);
+  min-height:0;
+  padding:28px 36px;
+}
+.testimonial-stage .varunan-testimonial .quote-mark{
+  font-size:46px;
+  margin-bottom:16px;
+}
+.testimonial-stage .varunan-testimonial>p{
+  max-width:650px;
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:22px;
+}
+.testimonial-stage .varunan-testimonial .testimonial-client{
+  gap:5px 12px;
+}
+@media(max-width:700px){
+  .testimonial-stage .varunan-testimonial{
+    width:100%;
+    min-height:0;
+    padding:24px 21px;
+  }
+  .testimonial-stage .varunan-testimonial .quote-mark{
+    font-size:42px;
+    margin-bottom:14px;
+  }
+  .testimonial-stage .varunan-testimonial>p{
+    font-size:13px;
+    line-height:1.65;
+    margin-bottom:20px;
+  }
+}
