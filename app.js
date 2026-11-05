@@ -50,4 +50,13 @@
    if('ResizeObserver' in window){new ResizeObserver(measureCareer).observe(track);}
  }
 
+ // Dismiss the branded loader once the page has finished loading.
+ const siteLoader=$('.site-loader');
+ if(siteLoader){
+   const hideLoader=()=>{siteLoader.classList.add('is-leaving');window.setTimeout(()=>siteLoader.remove(),750);};
+   if(document.readyState==='complete')window.setTimeout(hideLoader,650);
+   else window.addEventListener('load',()=>window.setTimeout(hideLoader,450),{once:true});
+   window.setTimeout(hideLoader,4500);
+ }
+
 })();
