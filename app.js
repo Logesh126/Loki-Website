@@ -50,4 +50,27 @@
    if('ResizeObserver' in window){new ResizeObserver(measureCareer).observe(track);}
  }
 
+
+ // Rotate one client review at a time with a slow dissolve.
+ const testimonialStage=$('.testimonial-stage');
+ if(testimonialStage){
+   const reviews=[...testimonialStage.querySelectorAll('.testimonial-card')];
+   const counter=$('.testimonial-counter');
+   let activeReview=0;
+   const showReview=(next)=>{
+     reviews[activeReview].classList.remove('is-active');
+     reviews[activeReview].setAttribute('aria-hidden','true');
+     activeReview=next;
+     reviews[activeReview].classList.add('is-active');
+     reviews[activeReview].setAttribute('aria-hidden','false');
+     if(counter) counter.textContent=String(activeReview+1).padStart(2,'0')+' / '+String(reviews.length).padStart(2,'0');
+   };
+   if(reviews.length>1){
+     window.setInterval(()=>{
+       if(document.hidden)return;
+       showReview((activeReview+1)%reviews.length);
+     },45000);
+   }
+ }
+
 })();
