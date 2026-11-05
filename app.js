@@ -25,4 +25,29 @@
   const split=Math.ceil(picks.length/2);const a=picks.slice(0,split).map(makeCard).join('');const b=picks.slice(split).map(makeCard).join('');
   const one=$('#marquee-one'),two=$('#marquee-two');if(one)one.innerHTML=a+a;if(two)two.innerHTML=b+b;
  }catch(error){console.error(error);if(grid)grid.innerHTML='<p class="loading">The project archive could not be loaded. Please refresh in a moment.</p>';}
+
+ // Scroll vertically to move the career timeline horizontally; normal page flow resumes afterwards.
+ const experience=$('.experience'), horizontal=$('.experience-horizontal'), pin=$('.experience-pin'), track=$('.career-track');
+ let travel=0, frame=0;
+ const measureCareer=()=>{
+   if(!experience||!horizontal||!pin||!track)return;
+   travel=Math.max(0,track.scrollWidth-window.innerWidth+24);
+   horizontal.style.height=(window.innerHeight+travel)+'px';
+   updateCareer();
+ };
+ const updateCareer=()=>{
+   if(!experience||!horizontal||!track)return;
+   const rect=horizontal.getBoundingClientRect();
+   const distance=Math.max(1,horizontal.offsetHeight-window.innerHeight);
+   const progress=Math.min(1,Math.max(0,-rect.top/distance));
+   track.style.transform='translate3d('+(-travel*progress)+'px,0,0)';
+ };
+ const onCareerScroll=()=>{if(!frame){frame=requestAnimationFrame(()=>{updateCareer();frame=0;});}};
+ if(experience&&horizontal&&track){
+   measureCareer();
+   window.addEventListener('resize',measureCareer,{passive:true});
+   window.addEventListener('scroll',onCareerScroll,{passive:true});
+   if('ResizeObserver' in window){new ResizeObserver(measureCareer).observe(track);}
+ }
+
 })();
