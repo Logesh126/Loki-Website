@@ -69,7 +69,7 @@
      window.setInterval(()=>{
        if(document.hidden)return;
        showReview((activeReview+1)%reviews.length);
-     },45000);
+     },20000);
    }
  }
 
