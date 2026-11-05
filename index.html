@@ -28,24 +28,52 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://logesh-design.vercel.app/#person","name":"Logesh","alternateName":"M.S. Logesh","jobTitle":"Product Designer and UI/UX Designer","description":"Product and visual designer specialising in product design, UI/UX, SaaS experiences, UX research, design systems, branding and visual communication.","url":"https://logesh-design.vercel.app/","image":"https://logesh-design.vercel.app/asset-0545.jpg","sameAs":["https://www.behance.net/logeshms","https://www.linkedin.com/in/logeshms","https://www.instagram.com/Loki_design1/","https://dribbble.com/Loki126"],"knowsAbout":["Product design","UI/UX design","User experience design","SaaS design","UX research","Design systems","Information architecture","Prototyping","Branding","Visual design"]}</script>
 </head>
 <body>
-  <div class="site-loader" role="status" aria-label="Loading portfolio"><div class="loader-symbol"><svg viewBox="0 0 32 32" focusable="false" aria-hidden="true"><path class="loader-star" d="M16 1.5 19.8 12.2 30.5 16l-10.7 3.8L16 30.5l-3.8-10.7L1.5 16l10.7-3.8L16 1.5Z"/><circle cx="16" cy="16" r="3" class="loader-core"/></svg></div><span class="loader-caption">Loading the experience</span><span class="loader-progress" aria-hidden="true"><i></i></span></div>
+  <div class="site-loader" role="status" aria-label="Loading portfolio">
+    <div class="loader-symbol" aria-hidden="true">
+      <svg viewBox="0 0 32 32" focusable="false">
+        <path class="loader-star" d="M16 1.5 19.8 12.2 30.5 16l-10.7 3.8L16 30.5l-3.8-10.7L1.5 16l10.7-3.8L16 1.5Z"/>
+        <circle class="loader-core" cx="16" cy="16" r="3"/>
+      </svg>
+    </div>
+    <div class="loader-greeting" aria-live="polite">Hello</div>
+    <div class="loader-bottom"><span class="loader-caption">Loading the experience</span><span class="loader-percent">0%</span></div>
+    <span class="loader-progress" aria-hidden="true"><i></i></span>
+  </div>
   <script>
     (function(){
       var overlay=document.querySelector('.site-loader');
       if(!overlay)return;
-      var started=Date.now(),done=false;
-      function dismiss(){
-        if(done)return;done=true;
-        overlay.classList.add('is-leaving');
-        window.setTimeout(function(){if(overlay.parentNode)overlay.parentNode.removeChild(overlay);},850);
+      var percent=overlay.querySelector('.loader-percent');
+      var greeting=overlay.querySelector('.loader-greeting');
+      var progress=overlay.querySelector('.loader-progress i');
+      var greetings=['Hello','Vanakkam','Hola','Bonjour','Welcome'];
+      var started=Date.now(), assetsReady=document.readyState==='complete', finished=false;
+      var duration=2600, value=0;
+      function tick(){
+        if(finished)return;
+        var elapsed=Date.now()-started;
+        var target=Math.min(100,Math.round(elapsed/duration*100));
+        if(assetsReady)target=Math.max(target,Math.min(100,Math.round((elapsed/duration)*100)));
+        value=Math.max(value,target);
+        if(percent)percent.textContent=value+'%';
+        if(progress)progress.style.width=value+'%';
+        if(greeting){var ix=Math.min(greetings.length-1,Math.floor(value/25));greeting.textContent=greetings[ix];}
+        if(value>=100&&assetsReady){
+          finished=true;
+          window.setTimeout(function(){
+            overlay.classList.add('is-leaving');
+            window.setTimeout(function(){if(overlay.parentNode)overlay.parentNode.removeChild(overlay);},850);
+          },250);
+        }else window.setTimeout(tick,45);
       }
-      function onReady(){
-        var wait=Math.max(0,1900-(Date.now()-started));
-        window.setTimeout(dismiss,wait);
+      if(assetsReady){tick();}
+      else{
+        window.addEventListener('load',function(){assetsReady=true;tick();},{once:true});
+        tick();
       }
-      if(document.readyState==='complete')onReady();
-      else window.addEventListener('load',onReady,{once:true});
-      window.setTimeout(dismiss,8000);
+      window.setTimeout(function(){
+        if(!finished){assetsReady=true;value=100;if(percent)percent.textContent='100%';if(progress)progress.style.width='100%';finished=true;overlay.classList.add('is-leaving');window.setTimeout(function(){if(overlay.parentNode)overlay.parentNode.removeChild(overlay);},850);}
+      },6500);
     })();
   </script>
   <div class="grain" aria-hidden="true"></div>
