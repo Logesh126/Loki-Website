@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="loader-active">
 <head>
   <meta name="google-site-verification" content="-04vgYkI6KxoGXRXKjluiK1izzMQYRh0D6jtzq3kTUk">
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -26,13 +26,33 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://logesh-design.vercel.app/#person","name":"Logesh","alternateName":"M.S. Logesh","jobTitle":"Product Designer and UI/UX Designer","description":"Product and visual designer specialising in product design, UI/UX, SaaS experiences, UX research, design systems, branding and visual communication.","url":"https://logesh-design.vercel.app/","image":"https://logesh-design.vercel.app/asset-0545.jpg","sameAs":["https://www.behance.net/logeshms","https://www.linkedin.com/in/logeshms","https://www.instagram.com/Loki_design1/","https://dribbble.com/Loki126"],"knowsAbout":["Product design","UI/UX design","User experience design","SaaS design","UX research","Design systems","Information architecture","Prototyping","Branding","Visual design"]}</script>
+  <style id="loader-critical">
+  html.loader-active,html.loader-active body{overflow:hidden!important;background:#09090d!important}
+  .site-loader{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;min-height:100vh!important;z-index:2147483647!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:22px!important;padding:24px!important;margin:0!important;background:#09090d!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;overflow:hidden!important;box-sizing:border-box!important}
+  .site-loader *{box-sizing:border-box!important}
+  .site-loader.is-leaving{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .75s ease,visibility .75s ease!important}
+  .site-loader .loader-symbol{display:block!important;width:82px!important;height:82px!important;min-width:82px!important;min-height:82px!important;max-width:82px!important;max-height:82px!important;margin:0!important;padding:0!important;opacity:1!important;transform:none!important;animation:none!important}
+  .site-loader .loader-symbol svg{display:block!important;width:82px!important;height:82px!important;max-width:82px!important;max-height:82px!important;overflow:visible!important;transform:none!important;animation:none!important}
+  .site-loader .loader-star{fill:transparent!important;stroke:#b9a2ff!important;stroke-width:.75!important;stroke-linecap:round!important;stroke-linejoin:round!important;stroke-dasharray:110!important;stroke-dashoffset:110!important;animation:loader-draw 1.05s ease forwards,loader-fill .55s 1.05s ease forwards!important}
+  .site-loader .loader-core{fill:#09090d!important;stroke:#b9a2ff!important;stroke-width:.65!important;opacity:0!important;animation:loader-core-in .35s .95s ease forwards!important}
+  .site-loader .loader-greeting{display:block!important;min-width:180px!important;text-align:center!important;color:#f3f0eb!important;font:600 23px/1.2 'Manrope',sans-serif!important;letter-spacing:-.04em!important;opacity:1!important}
+  .site-loader .loader-bottom{width:min(250px,72vw)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;margin:8px 0 0!important}
+  .site-loader .loader-caption{color:#aaa6b0!important;font:500 10px/1.4 'Manrope',sans-serif!important;letter-spacing:.08em!important;text-transform:none!important}
+  .site-loader .loader-percent{color:#b9a2ff!important;font:500 12px/1.4 'DM Mono',monospace!important;font-variant-numeric:tabular-nums!important}
+  .site-loader .loader-progress{display:block!important;position:relative!important;width:min(250px,72vw)!important;height:2px!important;margin:0!important;background:rgba(255,255,255,.15)!important;overflow:hidden!important}
+  .site-loader .loader-progress i{display:block!important;width:0!important;height:100%!important;background:#b9a2ff!important;transition:width .08s linear!important;animation:none!important}
+  @keyframes loader-draw{to{stroke-dashoffset:0}}
+  @keyframes loader-fill{to{fill:#b9a2ff;stroke:#b9a2ff}}
+  @keyframes loader-core-in{to{opacity:1}}
+  @media(prefers-reduced-motion:reduce){.site-loader .loader-star{animation:none!important;stroke-dashoffset:0!important;fill:#b9a2ff!important}.site-loader .loader-core{animation:none!important;opacity:1!important}}
+  </style>
 </head>
 <body>
   <div class="site-loader" role="status" aria-label="Loading portfolio">
     <div class="loader-symbol" aria-hidden="true">
-      <svg viewBox="0 0 32 32" focusable="false">
-        <path class="loader-star" d="M16 1.5 19.8 12.2 30.5 16l-10.7 3.8L16 30.5l-3.8-10.7L1.5 16l10.7-3.8L16 1.5Z"/>
-        <circle class="loader-core" cx="16" cy="16" r="3"/>
+      <svg viewBox="0 0 32 32" width="82" height="82" focusable="false">
+        <path class="loader-star" d="M16 1.5 19.8 12.2 30.5 16l-10.7 3.8L16 30.5l-3.8-10.7L1.5 16l10.7-3.8L16 1.5Z" fill="none" stroke="#b9a2ff" stroke-width=".75" stroke-dasharray="110" stroke-dashoffset="110"/>
+        <circle class="loader-core" cx="16" cy="16" r="3" fill="#09090d" stroke="#b9a2ff"/>
       </svg>
     </div>
     <div class="loader-greeting" aria-live="polite">Hello</div>
@@ -45,35 +65,36 @@
       if(!overlay)return;
       var percent=overlay.querySelector('.loader-percent');
       var greeting=overlay.querySelector('.loader-greeting');
-      var progress=overlay.querySelector('.loader-progress i');
-      var greetings=['Hello','Vanakkam','Hola','Bonjour','Welcome'];
-      var started=Date.now(), assetsReady=document.readyState==='complete', finished=false;
-      var duration=2600, value=0;
+      var bar=overlay.querySelector('.loader-progress i');
+      var words=['Hello','Vanakkam','Hola','Bonjour','Welcome'];
+      var start=Date.now(), loaded=document.readyState==='complete', done=false;
+      var minDuration=2600, maxDuration=7000;
+      function close(){
+        if(done)return;done=true;
+        overlay.classList.add('is-leaving');
+        document.documentElement.classList.remove('loader-active');
+        window.setTimeout(function(){if(overlay.parentNode)overlay.parentNode.removeChild(overlay);},850);
+      }
       function tick(){
-        if(finished)return;
-        var elapsed=Date.now()-started;
-        var target=Math.min(100,Math.round(elapsed/duration*100));
-        if(assetsReady)target=Math.max(target,Math.min(100,Math.round((elapsed/duration)*100)));
-        value=Math.max(value,target);
-        if(percent)percent.textContent=value+'%';
-        if(progress)progress.style.width=value+'%';
-        if(greeting){var ix=Math.min(greetings.length-1,Math.floor(value/25));greeting.textContent=greetings[ix];}
-        if(value>=100&&assetsReady){
-          finished=true;
-          window.setTimeout(function(){
-            overlay.classList.add('is-leaving');
-            window.setTimeout(function(){if(overlay.parentNode)overlay.parentNode.removeChild(overlay);},850);
-          },250);
-        }else window.setTimeout(tick,45);
+        if(done)return;
+        var elapsed=Date.now()-start;
+        var pct=Math.min(100,Math.round(elapsed/minDuration*100));
+        if(!loaded)pct=Math.min(94,pct);
+        if(percent)percent.textContent=pct+'%';
+        if(bar)bar.style.setProperty('width',pct+'%','important');
+        if(greeting){
+          var idx=Math.min(words.length-1,Math.floor(pct/20));
+          if(greeting.textContent!==words[idx]){
+            greeting.textContent=words[idx];
+            greeting.animate([{opacity:.25,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:260,easing:'ease-out'});
+          }
+        }
+        if(loaded&&pct>=100){window.setTimeout(close,320);return;}
+        if(elapsed>=maxDuration){if(percent)percent.textContent='100%';if(bar)bar.style.setProperty('width','100%','important');window.setTimeout(close,300);return;}
+        window.setTimeout(tick,35);
       }
-      if(assetsReady){tick();}
-      else{
-        window.addEventListener('load',function(){assetsReady=true;tick();},{once:true});
-        tick();
-      }
-      window.setTimeout(function(){
-        if(!finished){assetsReady=true;value=100;if(percent)percent.textContent='100%';if(progress)progress.style.width='100%';finished=true;overlay.classList.add('is-leaving');window.setTimeout(function(){if(overlay.parentNode)overlay.parentNode.removeChild(overlay);},850);}
-      },6500);
+      if(loaded){tick();}
+      else{window.addEventListener('load',function(){loaded=true;},{once:true});tick();}
     })();
   </script>
   <div class="grain" aria-hidden="true"></div>
