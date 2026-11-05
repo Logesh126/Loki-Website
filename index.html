@@ -33,17 +33,21 @@
     (function(){
       var overlay=document.querySelector('.site-loader');
       if(!overlay)return;
-      var dismissed=false;
+      var started=Date.now(),done=false;
       function dismiss(){
-        if(dismissed)return; dismissed=true;
+        if(done)return;done=true;
         overlay.classList.add('is-leaving');
-        window.setTimeout(function(){if(overlay.parentNode)overlay.parentNode.removeChild(overlay);},800);
+        window.setTimeout(function(){if(overlay.parentNode)overlay.parentNode.removeChild(overlay);},850);
       }
-      window.addEventListener('load',function(){window.setTimeout(dismiss,650);},{once:true});
-      window.setTimeout(dismiss,7000);
+      function onReady(){
+        var wait=Math.max(0,1900-(Date.now()-started));
+        window.setTimeout(dismiss,wait);
+      }
+      if(document.readyState==='complete')onReady();
+      else window.addEventListener('load',onReady,{once:true});
+      window.setTimeout(dismiss,8000);
     })();
   </script>
-
   <div class="grain" aria-hidden="true"></div>
   <header class="site-header">
     <a class="logo" href="index.html" aria-label="Logesh home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M16 1.5 19.8 12.2 30.5 16l-10.7 3.8L16 30.5l-3.8-10.7L1.5 16l10.7-3.8L16 1.5Z" fill="currentColor"/><circle cx="16" cy="16" r="3" fill="var(--bg,#09090d)"/></svg></span></a>
