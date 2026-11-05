@@ -518,3 +518,29 @@ img[loading="lazy"]{content-visibility:auto}
 .logo .brand-mark{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:38px!important;height:38px!important;font-size:0!important;line-height:0!important;color:var(--text,#f3f0eb)!important}
 .logo .brand-mark svg{display:block!important;width:30px!important;height:30px!important;overflow:visible}
 .logo .brand-mark::before{content:none!important;display:none!important}
+
+
+/* Shared animated identity and responsive header */
+.site-header,body>header.site-header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(18px,3vw,42px)!important;min-height:82px!important;padding:16px clamp(22px,5vw,76px)!important;border-bottom:1px solid var(--line,#292832)!important;background:rgba(9,9,13,.88)!important;backdrop-filter:blur(16px)}
+.site-header>.logo,body>header.site-header>.logo{flex:0 0 auto;display:inline-flex;align-items:center}
+.site-header>.main-nav,.site-header>.mobile-nav-links,body>header.site-header>nav{display:flex!important;align-items:center!important;justify-content:center!important;flex:1 1 auto!important;gap:clamp(16px,2.6vw,34px)!important;margin:0!important;padding:0!important;width:auto!important}
+.site-header>.main-nav a,.site-header>.mobile-nav-links a,body>header.site-header>nav a{font:500 14px 'Manrope',sans-serif!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap;color:var(--text,#f3f0eb)}
+.site-header>.header-note,body>header.site-header>.header-note{flex:0 0 auto!important;grid-column:auto!important;margin:0!important;white-space:nowrap;color:var(--muted,#aaa6b0)!important;font:500 12px 'Manrope',sans-serif!important}
+.site-header .menu-toggle,.site-header .mobile-menu-toggle{display:none!important}
+.logo .brand-mark{width:40px!important;height:40px!important;color:var(--text,#f3f0eb)!important}
+.logo .brand-mark::before{content:none!important;display:none!important}
+.logo .brand-mark svg{display:block!important;width:30px!important;height:30px!important;overflow:visible;transform-origin:50% 50%;animation:brand-orbit 16s linear infinite}
+.logo:hover .brand-mark svg{animation-duration:3s}
+@keyframes brand-orbit{to{transform:rotate(360deg)}}
+@media(max-width:700px){.site-header,body>header.site-header{display:grid!important;grid-template-columns:1fr auto!important;grid-template-rows:auto auto!important;gap:10px 14px!important;min-height:0!important;padding:14px 5vw!important}.site-header>.logo,body>header.site-header>.logo{grid-column:1!important;grid-row:1!important}.site-header .menu-toggle,.site-header .mobile-menu-toggle{display:inline-flex!important;grid-column:2!important;grid-row:1!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important;margin:0!important}.site-header>.main-nav,.site-header>.mobile-nav-links,body>header.site-header>nav{display:none!important;grid-column:1/-1!important;grid-row:2!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:15px!important;width:100%!important;padding:12px 0 8px!important;margin:0!important}.site-header>.main-nav.open,.site-header>.mobile-nav-links.is-open,body>header.site-header>nav.open,body>header.site-header>nav.is-open{display:flex!important}.site-header>.header-note,body>header.site-header>.header-note{display:none!important}}
+@media(prefers-reduced-motion:reduce){.logo .brand-mark svg{animation:none!important}}
+/* Animated atmospheric field behind the homepage hero */
+.hero{isolation:isolate}
+.hero::before,.hero::after{content:"";position:absolute;pointer-events:none;z-index:0;border-radius:50%;filter:blur(2px);will-change:transform}
+.hero::before{width:min(64vw,780px);aspect-ratio:1;right:-13%;top:-24%;background:radial-gradient(circle,rgba(185,162,255,.19) 0%,rgba(115,91,174,.10) 34%,rgba(9,9,13,0) 70%);animation:hero-aura-drift 19s ease-in-out infinite alternate}
+.hero::after{width:min(48vw,590px);aspect-ratio:1;left:18%;bottom:-42%;background:radial-gradient(circle,rgba(2,166,220,.11) 0%,rgba(2,166,220,.045) 38%,rgba(9,9,13,0) 72%);animation:hero-aura-drift-two 24s ease-in-out infinite alternate}
+.hero-meta,.hero-main,.hero-index{position:relative;z-index:1}
+@keyframes hero-aura-drift{0%{transform:translate3d(0,0,0) scale(.92)}100%{transform:translate3d(-9%,12%,0) scale(1.12)}}
+@keyframes hero-aura-drift-two{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(12%,-10%,0) scale(1.16)}}
+@media(max-width:700px){.hero::before{width:110vw;right:-48%;top:-12%}.hero::after{width:85vw;left:-22%;bottom:-30%}}
+@media(prefers-reduced-motion:reduce){.hero::before,.hero::after{animation:none!important}}
