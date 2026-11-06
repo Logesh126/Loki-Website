@@ -51,26 +51,33 @@
  }
 
 
- // Rotate one client review at a time with a slow dissolve.
+ // Rotate one client review at a time; also allow manual navigation.
  const testimonialStage=$('.testimonial-stage');
  if(testimonialStage){
    const reviews=[...testimonialStage.querySelectorAll('.testimonial-card')];
    const counter=$('.testimonial-counter');
-   let activeReview=0;
-   const showReview=(next)=>{
-     reviews[activeReview].classList.remove('is-active');
-     reviews[activeReview].setAttribute('aria-hidden','true');
-     activeReview=next;
+   const previous=$('.testimonial-prev');
+   const next=$('.testimonial-next');
+   let activeReview=Math.max(0,reviews.findIndex(review=>review.classList.contains('is-active')));
+   let rotationTimer;
+   const showReview=(index)=>{
+     if(!reviews.length)return;
+     reviews[activeReview]?.classList.remove('is-active');
+     reviews[activeReview]?.setAttribute('aria-hidden','true');
+     activeReview=(index+reviews.length)%reviews.length;
      reviews[activeReview].classList.add('is-active');
      reviews[activeReview].setAttribute('aria-hidden','false');
-     if(counter) counter.textContent=String(activeReview+1).padStart(2,'0')+' / '+String(reviews.length).padStart(2,'0');
+     if(counter)counter.textContent=String(activeReview+1).padStart(2,'0')+' / '+String(reviews.length).padStart(2,'0');
    };
-   if(reviews.length>1){
-     window.setInterval(()=>{
-       if(document.hidden)return;
-       showReview((activeReview+1)%reviews.length);
+   const restartRotation=()=>{
+     window.clearInterval(rotationTimer);
+     if(reviews.length>1)rotationTimer=window.setInterval(()=>{
+       if(!document.hidden)showReview(activeReview+1);
      },15000);
-   }
+   };
+   previous?.addEventListener('click',()=>{showReview(activeReview-1);restartRotation();});
+   next?.addEventListener('click',()=>{showReview(activeReview+1);restartRotation();});
+   if(reviews.length>1)restartRotation();
  }
 
 })();
