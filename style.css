@@ -712,3 +712,12 @@ img[loading="lazy"]{content-visibility:auto}
  .testimonial-footer{font-size:9px;gap:12px}
 }
 @media(prefers-reduced-motion:reduce){.testimonial-stage .testimonial-card{transition:none;transform:none}}
+
+
+/* Portfolio polish: accessible testimonial navigation */
+.testimonial-footer{align-items:center}
+.testimonial-controls{display:flex;align-items:center;gap:10px}
+.testimonial-controls button{display:grid;place-items:center;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--text);font:500 20px 'Manrope',sans-serif;cursor:pointer;transition:background .25s ease,border-color .25s ease,color .25s ease,transform .25s ease}
+.testimonial-controls button:hover{background:var(--accent);border-color:var(--accent);color:#09090d;transform:translateY(-2px)}
+.testimonial-controls button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:600px){.testimonial-controls button{width:40px;height:40px}.testimonial-footer{margin-top:18px}}
