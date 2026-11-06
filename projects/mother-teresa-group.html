@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09090d">
+<meta name="description" content="A multi-institution website redesign for Mother Teresa Group of Institutions — eight distinct desktop website experiences, supported by a connected graphic design system.">
+<meta property="og:title" content="Mother Teresa Group — Eight Websites, One Digital Ecosystem | Logesh">
+<meta property="og:description" content="A multi-institution website redesign spanning eight educational institutions, with desktop UI/UX and institutional graphic design.">
+<meta property="og:type" content="article">
+<title>Mother Teresa Group — Eight Websites, One Digital Ecosystem | Logesh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090d;--panel:#111018;--text:#f4f0f7;--muted:#a6a0af;--line:rgba(255,255,255,.12);--accent:#b9a2ff;--sans:'Manrope',sans-serif;--mono:'DM Mono',monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65}a{color:inherit;text-decoration:none}
+header{padding:22px 6vw 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.logo{font-size:18px;font-weight:800;letter-spacing:-.07em}.logo span{color:var(--accent)}nav{display:flex;gap:25px;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}nav a:hover,.back:hover{color:var(--accent)}
+header small{font:9px var(--mono);letter-spacing:.14em;color:var(--muted)}
+main{max-width:1440px;margin:auto}.hero{padding:70px 6vw 60px}.back{display:inline-block;color:var(--accent);font:10px var(--mono);letter-spacing:.1em;margin-bottom:55px}.eyebrow,.kicker{font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(52px,9vw,116px);line-height:.93;letter-spacing:-.09em;margin:18px 0 25px;max-width:1100px}h1 em{font-style:normal;color:#c5b3ff}.lede{max-width:740px;font-size:clamp(17px,2vw,22px);line-height:1.7;color:#d0cad7;margin:0}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:46px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hero-meta div{min-width:130px;display:flex;flex-direction:column;gap:6px}.hero-meta label{font:9px var(--mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}.hero-meta b{font-size:12px;font-weight:600}
+.section{padding:58px 6vw;border-top:1px solid var(--line)}.section-head{display:grid;grid-template-columns:minmax(160px,.55fr) 1.45fr;gap:35px;margin-bottom:32px}.section-no{font:10px var(--mono);letter-spacing:.13em;color:var(--accent);text-transform:uppercase}.section h2{font-size:clamp(30px,5vw,58px);line-height:1.02;letter-spacing:-.065em;margin:0 0 12px}.section-lead{max-width:720px;color:var(--muted);margin:0;font-size:16px;line-height:1.8}
+.body-copy{max-width:780px;color:var(--muted);font-size:15px;line-height:1.9}.body-copy p{margin:0 0 15px}.callout{border-left:2px solid var(--accent);padding:17px 22px;margin:28px 0 0;background:rgba(185,162,255,.06);color:#e7e0f1;max-width:900px}
+.institution-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.institution{--tone:#b9a2ff;border:1px solid var(--line);background:linear-gradient(135deg,color-mix(in srgb,var(--tone) 13%,#111018),#111018 60%);padding:24px;min-height:190px;position:relative;overflow:hidden}
+.institution:after{content:"";position:absolute;width:170px;height:170px;border:1px solid color-mix(in srgb,var(--tone) 38%,transparent);border-radius:50%;right:-65px;top:-65px;box-shadow:0 0 0 22px color-mix(in srgb,var(--tone) 6%,transparent),0 0 0 45px color-mix(in srgb,var(--tone) 4%,transparent)}
+.institution-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.institution-index{font:10px var(--mono);color:var(--tone);letter-spacing:.12em}.institution-count{font:9px var(--mono);color:var(--muted);letter-spacing:.1em}
+.institution h3{font-size:clamp(21px,2.5vw,30px);letter-spacing:-.055em;line-height:1.12;margin:26px 0 8px;max-width:390px}.institution p{margin:0;color:var(--muted);font-size:13px;max-width:420px;line-height:1.7}
+.institution .tone{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font:9px var(--mono);letter-spacing:.1em;color:#d4cedd;text-transform:uppercase}.tone i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--tone)}
+.palette-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.palette-item{border:1px solid var(--line);background:#111018;padding:12px}.swatch{height:56px;background:var(--tone);margin-bottom:12px}.palette-item b{font-size:11px;display:block}.palette-item small{font:9px var(--mono);color:var(--muted)}
+.process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.step{padding:18px;border:1px solid var(--line);background:#111018;min-height:145px}.step span{font:9px var(--mono);color:var(--accent);letter-spacing:.12em}.step h3{font-size:17px;margin:15px 0 6px}.step p{font-size:12px;color:var(--muted);margin:0;line-height:1.7}
+.collateral-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.collateral{border:1px solid var(--line);background:#111018;padding:22px;min-height:170px}.collateral .symbol{font:32px var(--mono);color:var(--accent)}.collateral h3{font-size:17px;margin:14px 0 5px}.collateral p{font-size:12px;color:var(--muted);margin:0;line-height:1.7}
+.note{font-size:12px;color:var(--muted);padding:16px 18px;border:1px dashed rgba(185,162,255,.35);margin-top:22px;max-width:920px}
+footer{padding:24px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted);font:9px var(--mono);letter-spacing:.1em}footer a{color:var(--accent)}
+@media(max-width:760px){header{padding:18px 5vw}nav{gap:14px;font-size:8px}.hero{padding:45px 5vw 40px}.back{margin-bottom:35px}.section{padding:42px 5vw}.section-head{grid-template-columns:1fr;gap:12px}.institution-grid{grid-template-columns:1fr}.process{grid-template-columns:repeat(2,minmax(0,1fr))}.palette-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.collateral-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){nav{width:100%;justify-content:space-between}.process{grid-template-columns:1fr}.collateral-grid{grid-template-columns:1fr}.hero-meta{gap:16px}.hero-meta div{min-width:42%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><a class="logo" href="../index.html">L<span>✳</span></a><nav aria-label="Project navigation"><a href="../index.html">Home</a><a href="../index.html#work">Selected work</a><a href="../index.html#contact">Contact</a></nav><small>PROJECT / EDUCATION</small></header>
+<main>
+<section class="hero">
+<a class="back" href="../index.html#work">← BACK TO SELECTED PROJECTS</a>
+<p class="eyebrow">Multi-institution digital experience · UI/UX + visual design</p>
+<h1>Eight websites.<br><em>One connected vision.</em></h1>
+<p class="lede">A multi-institution website redesign for Mother Teresa Group of Institutions — shaping eight distinct educational websites while bringing consistency to how the wider group communicates online.</p>
+<div class="hero-meta">
+<div><label>Client</label><b>Mother Teresa Group of Institutions</b></div>
+<div><label>Role</label><b>UI/UX & Graphic Designer</b></div>
+<div><label>Scope</label><b>8 institution websites</b></div>
+<div><label>Platform</label><b>Web · Desktop showcase</b></div>
+<div><label>Contribution</label><b>UX structure · UI design · Visual communication</b></div>
+</div>
+</section>
+<section class="section"><div class="section-head"><div class="section-no">01 / Overview</div><div><h2>A group of institutions, expressed through individual experiences.</h2><p class="section-lead">The work covered eight educational institutions under the Mother Teresa Group. Each website needed to communicate its own courses, campus life and institutional character, while remaining recognisably part of the same group.</p></div></div>
+<div class="body-copy"><p>I worked across the UI/UX design of eight separate websites, from page structure and content hierarchy through to high-fidelity desktop interfaces. Alongside the websites, I also created graphic design collateral for institutional communication, admissions and awareness campaigns.</p><p>The design approach was to give each institution a clear visual voice rather than force every website into one identical template. Shared interaction patterns and consistent layout principles helped the collection feel connected.</p></div>
+<div class="callout">The central design challenge: create eight recognisable institutional experiences without losing the consistency and trust of the parent group.</div>
+</section>
+<section class="section"><div class="section-head"><div class="section-no">02 / The eight experiences</div><div><h2>One group. Eight distinct websites.</h2><p class="section-lead">Each institution received its own website direction, shaped around its academic focus and the information its visitors need to find.</p></div></div>
+<div class="institution-grid">
+<article class="institution" style="--tone:#A3152A"><div class="institution-top"><span class="institution-index">01 / A&S</span><span class="institution-count">10 DESKTOP SCREENS</span></div><h3>Arts & Science College</h3><p>Academic programmes, departments, research and student life, organised into a clear college experience.</p><span class="tone"><i></i> Editorial · Academic</span></article>
+<article class="institution" style="--tone:#B8860B"><div class="institution-top"><span class="institution-index">02 / HMCT</span><span class="institution-count">4 DESKTOP SCREENS</span></div><h3>Hotel Management & Catering Technology</h3><p>A hospitality-focused website presenting the institution, its programme and enquiry pathways.</p><span class="tone"><i></i> Hospitality · Welcoming</span></article>
+<article class="institution" style="--tone:#C62828"><div class="institution-top"><span class="institution-index">03 / MTCE</span><span class="institution-count">4 DESKTOP SCREENS</span></div><h3>College of Education</h3><p>A professional academic experience centred on teacher education, institutional information and admissions.</p><span class="tone"><i></i> Scholarly · Professional</span></article>
+<article class="institution" style="--tone:#8C3A83"><div class="institution-top"><span class="institution-index">04 / MTMHSS</span><span class="institution-count">4 DESKTOP SCREENS</span></div><h3>Matriculation Higher Secondary School</h3><p>A school-focused experience communicating learning stages, school life and admissions to families.</p><span class="tone"><i></i> Supportive · Approachable</span></article>
+<article class="institution" style="--tone:#EF6C00"><div class="institution-top"><span class="institution-index">05 / MTPC</span><span class="institution-count">6 DESKTOP SCREENS</span></div><h3>Polytechnic College</h3><p>A practical, technical direction for programme discovery, facilities, campus life and admission enquiries.</p><span class="tone"><i></i> Technical · Practical</span></article>
+<article class="institution" style="--tone:#2E7D32"><div class="institution-top"><span class="institution-index">06 / MTCA</span><span class="institution-count">6 DESKTOP SCREENS</span></div><h3>Agriculture & Horticulture College</h3><p>A nature-led academic direction for agriculture programmes, departments, field learning and campus activities.</p><span class="tone"><i></i> Natural · Sustainable</span></article>
+<article class="institution" style="--tone:#D32F2F"><div class="institution-top"><span class="institution-index">07 / MTCPE</span><span class="institution-count">4 DESKTOP SCREENS</span></div><h3>College of Physical Education</h3><p>An energetic experience for sports education, course information, institutional impact and contact.</p><span class="tone"><i></i> Active · Energetic</span></article>
+<article class="institution" style="--tone:#083D8C"><div class="institution-top"><span class="institution-index">08 / MTCET</span><span class="institution-count">6 DESKTOP SCREENS</span></div><h3>College of Engineering & Technology</h3><p>A technical and professional website covering engineering programmes, departments and institutional information.</p><span class="tone"><i></i> Technical · Professional</span></article>
+</div>
+<p class="note">The screen counts refer to the desktop PDF exports supplied for this portfolio showcase. Mobile layouts were also designed as part of the work, but are not displayed here because export files were unavailable.</p>
+</section>
+<section class="section"><div class="section-head"><div class="section-no">03 / Design system</div><div><h2>A shared foundation, with room for character.</h2><p class="section-lead">The visual approach balances group-level consistency with institution-specific colour and tone.</p></div></div>
+<div class="palette-grid">
+<div class="palette-item"><div class="swatch" style="--tone:#A3152A"></div><b>Arts & Science</b><small>#A3152A · Editorial</small></div>
+<div class="palette-item"><div class="swatch" style="--tone:#083D8C"></div><b>Engineering</b><small>#083D8C · Technical</small></div>
+<div class="palette-item"><div class="swatch" style="--tone:#B8860B"></div><b>Catering</b><small>#B8860B · Hospitality</small></div>
+<div class="palette-item"><div class="swatch" style="--tone:#2E7D32"></div><b>Agriculture</b><small>#2E7D32 · Natural</small></div>
+<div class="palette-item"><div class="swatch" style="--tone:#C62828"></div><b>Education</b><small>#C62828 · Scholarly</small></div>
+<div class="palette-item"><div class="swatch" style="--tone:#D32F2F"></div><b>Physical Education</b><small>#D32F2F · Energetic</small></div>
+<div class="palette-item"><div class="swatch" style="--tone:#EF6C00"></div><b>Polytechnic</b><small>#EF6C00 · Practical</small></div>
+<div class="palette-item"><div class="swatch" style="--tone:#8C3A83"></div><b>School</b><small>Distinct school direction</small></div>
+</div>
+<div class="body-copy" style="margin-top:25px"><p>Across the websites, the shared design principles included consistent navigation behaviour, reusable interface patterns, clear typography hierarchy, structured spacing, accessible contrast and predictable page layouts. The colour and content treatment then gave each institution its own identity.</p></div>
+</section>
+<section class="section"><div class="section-head"><div class="section-no">04 / Design process</div><div><h2>From information structure to interface.</h2><p class="section-lead">A repeatable process helped keep the eight websites coherent while allowing the content and visual direction to change with each institution.</p></div></div>
+<div class="process">
+<div class="step"><span>STEP 01</span><h3>Understand</h3><p>Review institutional content, programme information and communication priorities.</p></div>
+<div class="step"><span>STEP 02</span><h3>Structure</h3><p>Organise navigation, page hierarchy and key information for each website.</p></div>
+<div class="step"><span>STEP 03</span><h3>Design</h3><p>Develop the visual direction and high-fidelity desktop interfaces in Figma.</p></div>
+<div class="step"><span>STEP 04</span><h3>Adapt</h3><p>Design responsive mobile layouts alongside the desktop experience.</p></div>
+</div>
+</section>
+<section class="section"><div class="section-head"><div class="section-no">05 / Graphic design</div><div><h2>Beyond the websites.</h2><p class="section-lead">The project also extended into visual communication for the wider institution group.</p></div></div>
+<div class="collateral-grid">
+<article class="collateral"><div class="symbol">✳</div><h3>Admission campaigns</h3><p>Promotional creatives for the 2026 admission cycle and institution-level course communication.</p></article>
+<article class="collateral"><div class="symbol">▤</div><h3>Brochures & print</h3><p>Institutional brochures and course-focused collateral, including Physiotherapy materials.</p></article>
+<article class="collateral"><div class="symbol">▱</div><h3>Banners & announcements</h3><p>Group-level banners and seasonal communication such as New Year and Pongal creatives.</p></article>
+<article class="collateral"><div class="symbol">◎</div><h3>Public awareness</h3><p>A Tamil-language cyclone safety awareness poster communicating preparedness guidance.</p></article>
+<article class="collateral"><div class="symbol">◫</div><h3>Institutional promotion</h3><p>Posters for Engineering, Agriculture, Horticulture and the wider institution group.</p></article>
+<article class="collateral"><div class="symbol">✦</div><h3>Consistent communication</h3><p>Visual collateral designed to support recognition across multiple institutions and formats.</p></article>
+</div>
+</section>
+<section class="section"><div class="section-head"><div class="section-no">06 / Reflection</div><div><h2>Designing for a wider ecosystem.</h2><p class="section-lead">Working across eight websites required more than repeating a layout. It meant understanding how different institutions communicate, what information matters to their audiences and where consistency should be shared.</p></div></div>
+<div class="body-copy"><p>The project strengthened my ability to work across multiple related digital experiences, establish reusable design principles and create distinct visual directions within a shared brand ecosystem.</p><p>It also connected my UI/UX practice with graphic design — carrying the institution's communication across websites, brochures, admission creatives and awareness material.</p></div>
+</section>
+</main>
+<footer><span>© 2026 · Designed by Logesh</span><a href="../index.html#work">Back to selected work ↑</a></footer>
+</body></html>
