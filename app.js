@@ -7,7 +7,8 @@
   const response=await fetch('gallery-data.json'); if(!response.ok) throw new Error('Could not load gallery data');
   const data=await response.json();
   const projectInfo=[
-   ['ciphermutex','CipherMutex','Product design, brand communication & creative work','projects/ciphermutex.html','01',[['Live website','https://www.ciphermutex.com/'],['Instagram','https://www.instagram.com/ciphermutex/']]],
+   ['mother-teresa-group','Mother Teresa Group','Eight institutional websites · UI/UX & graphic design','projects/mother-teresa-group.html','01'],
+   ['ciphermutex','CipherMutex','Product design, brand communication & creative work','projects/ciphermutex.html','02',[['Live website','https://www.ciphermutex.com/'],['Instagram','https://www.instagram.com/ciphermutex/']]],
    ['pebblezapp','Pebblezapp','Digital product experience & interface design','projects/pebblezapp.html','02',[['Live website','https://www.pebblezapp.com/collections/all-products/3186552000001364608'],['Instagram','https://www.instagram.com/pebblezapp/']]],
    ['nesswa','Nesswa','A visual identity and digital design collection','projects/nesswa.html','03',[['Live website','https://nesswaelitestore.com/'],['Instagram','https://www.instagram.com/perricofoods/']]],
    ['v-study-global','V Study Global','Study-abroad brand communication & digital content','projects/v-study-global.html','04',[['Instagram','https://www.instagram.com/v_studyglobal/']]],
