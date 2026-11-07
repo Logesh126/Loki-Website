@@ -721,3 +721,35 @@ img[loading="lazy"]{content-visibility:auto}
 .testimonial-controls button:hover{background:var(--accent);border-color:var(--accent);color:#09090d;transform:translateY(-2px)}
 .testimonial-controls button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 @media(max-width:600px){.testimonial-controls button{width:40px;height:40px}.testimonial-footer{margin-top:18px}}
+
+
+/* Final global header alignment — shared across portfolio pages */
+.site-header,body>header.site-header{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+}
+.site-header>.main-nav,.site-header>.mobile-nav-links,body>header.site-header>nav{
+  flex:0 1 auto!important;
+  width:auto!important;
+  margin-left:auto!important;
+  margin-right:0!important;
+  justify-content:flex-end!important;
+  align-items:center!important;
+}
+.site-header>.header-note,body>header.site-header>.header-note{display:none!important}
+@media(max-width:700px){
+ .site-header,body>header.site-header{
+   display:grid!important;
+   grid-template-columns:minmax(0,1fr) auto!important;
+   grid-template-rows:auto auto!important;
+   align-items:center!important;
+ }
+ .site-header>.logo,body>header.site-header>.logo{grid-column:1!important;grid-row:1!important;justify-self:start!important}
+ .site-header>.menu-toggle,.site-header>.mobile-menu-toggle{grid-column:2!important;grid-row:1!important;justify-self:end!important}
+ .site-header>.main-nav,.site-header>.mobile-nav-links,body>header.site-header>nav{
+   grid-column:1/-1!important;grid-row:2!important;
+   flex-direction:column!important;align-items:flex-start!important;
+   justify-content:flex-start!important;margin:0!important;width:100%!important;
+ }
+}
