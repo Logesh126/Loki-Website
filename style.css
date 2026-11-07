@@ -809,3 +809,94 @@ body>footer a:hover{color:var(--accent,#b9a2ff)!important}
   body footer,body>footer{padding-left:5vw!important;padding-right:5vw!important;gap:8px!important}
   body footer>*,body>footer>*{font-size:10px!important}
 }
+
+
+
+/* Unified footer layout — entire portfolio, desktop and mobile */
+html body>footer,
+html body footer{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-height:88px!important;
+  padding:24px clamp(20px,5vw,76px)!important;
+  margin:0!important;
+  border-top:1px solid var(--line,rgba(255,255,255,.14))!important;
+  display:flex!important;
+  flex-direction:row!important;
+  justify-content:space-between!important;
+  align-items:center!important;
+  gap:20px 28px!important;
+  flex-wrap:nowrap!important;
+  text-align:left!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+  letter-spacing:.02em!important;
+}
+html body>footer>*,
+html body footer>*{
+  width:auto!important;
+  max-width:100%!important;
+  margin:0!important;
+  flex:0 1 auto!important;
+}
+html body>footer>:first-child,
+html body footer>:first-child{
+  text-align:left!important;
+}
+html body>footer>:last-child,
+html body footer>:last-child{
+  margin-left:auto!important;
+  text-align:right!important;
+  white-space:nowrap!important;
+}
+html body>footer a,
+html body footer a{
+  color:inherit!important;
+  text-decoration:none!important;
+  transition:opacity .2s ease!important;
+}
+html body>footer a:hover,
+html body footer a:hover{opacity:.7!important}
+@media(max-width:600px){
+  html body>footer,
+  html body footer{
+    min-height:76px!important;
+    padding:20px 6vw!important;
+    gap:12px!important;
+    flex-wrap:wrap!important;
+    align-items:center!important;
+    font-size:clamp(9px,2.7vw,11px)!important;
+  }
+  html body>footer>*,
+  html body footer>*{
+    flex:0 1 auto!important;
+  }
+  html body>footer>:first-child,
+  html body footer>:first-child{
+    max-width:62%!important;
+    text-align:left!important;
+  }
+  html body>footer>:last-child,
+  html body footer>:last-child{
+    margin-left:auto!important;
+    max-width:38%!important;
+    text-align:right!important;
+    white-space:normal!important;
+  }
+}
+@media(max-width:360px){
+  html body>footer,
+  html body footer{
+    align-items:flex-start!important;
+    flex-direction:column!important;
+    gap:8px!important;
+  }
+  html body>footer>:first-child,
+  html body footer>:first-child,
+  html body>footer>:last-child,
+  html body footer>:last-child{
+    max-width:100%!important;
+    margin-left:0!important;
+    text-align:left!important;
+  }
+}
