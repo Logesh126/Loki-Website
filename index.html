@@ -36,9 +36,9 @@
   .site-loader .loader-symbol svg{display:block!important;width:82px!important;height:82px!important;overflow:visible!important}
   .site-loader .loader-star{fill:transparent;stroke:#b9a2ff;stroke-width:.85;stroke-linejoin:round;stroke-dasharray:110;stroke-dashoffset:110;animation:loader-outline 1.05s ease forwards,loader-purple-fill .65s 1.05s ease forwards}
   .site-loader .loader-core{fill:#09090d;stroke:#b9a2ff;stroke-width:.7;opacity:0;animation:loader-core-show .4s .9s ease forwards}
-  .site-loader .loader-greeting{display:block!important;min-width:180px!important;text-align:center!important;color:#f3f0eb!important;font:600 23px/1.2 'Manrope',sans-serif!important;letter-spacing:-.04em!important}
+  .site-loader .loader-greeting{display:block!important;min-width:180px!important;text-align:center!important;color:#f3f0eb!important;font:600 23px/1.2 'Outfit',sans-serif!important;letter-spacing:-.04em!important}
   .site-loader .loader-bottom{width:min(250px,72vw)!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;margin:8px 0 0!important}
-  .site-loader .loader-caption{color:#aaa6b0!important;font:500 10px/1.4 'Manrope',sans-serif!important;letter-spacing:.08em!important}
+  .site-loader .loader-caption{color:#aaa6b0!important;font:500 10px/1.4 'Outfit',sans-serif!important;letter-spacing:.08em!important}
   .site-loader .loader-percent{color:#b9a2ff!important;font:500 12px/1.4 'DM Mono',monospace!important;font-variant-numeric:tabular-nums!important}
   .site-loader .loader-progress{display:block!important;position:relative!important;width:min(250px,72vw)!important;height:2px!important;margin:0!important;background:rgba(255,255,255,.15)!important;overflow:hidden!important}
   .site-loader .loader-progress i{display:block!important;width:0;height:100%!important;background:#b9a2ff!important;transition:width .08s linear!important}
@@ -68,39 +68,43 @@
       var greeting=overlay.querySelector('.loader-greeting');
       var bar=overlay.querySelector('.loader-progress i');
       var words=['Hello','Vanakkam','Hola','Bonjour','Welcome'];
-      var started=Date.now(), loaded=document.readyState==='complete', completed=false;
-      var minimum=2600, maximum=9000;
-      function reveal(){
-        if(completed)return;
-        completed=true;
-        if(percent)percent.textContent='100%';
-        if(bar)bar.style.width='100%';
+      var started=Date.now(), loaded=document.readyState==='complete', finished=false;
+      var minimum=2600, maximum=10000, timer;
+      function setProgress(value){
+        value=Math.max(0,Math.min(100,Math.round(value)));
+        if(percent)percent.textContent=value+'%';
+        if(bar){bar.style.width=value+'%';bar.style.transform='none';}
+        if(greeting){
+          var word=words[Math.min(words.length-1,Math.floor(value/20))];
+          if(greeting.textContent!==word){
+            greeting.textContent=word;
+            if(greeting.animate)greeting.animate([{opacity:.35,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:260,easing:'ease-out'});
+          }
+        }
+      }
+      function finish(){
+        if(finished)return;
+        finished=true;
+        window.clearTimeout(timer);
+        setProgress(100);
+        if(bar){bar.style.transition='width .45s ease';bar.style.width='100%';}
         window.setTimeout(function(){
           overlay.classList.add('is-leaving');
           document.documentElement.classList.remove('loader-active');
           window.setTimeout(function(){overlay.remove();},850);
-        },280);
+        },550);
       }
-      function animate(){
-        if(completed)return;
+      function tick(){
+        if(finished)return;
         var elapsed=Date.now()-started;
-        var progress=Math.min(100,Math.round(elapsed/minimum*100));
-        if(!loaded)progress=Math.min(progress,94);
-        if(percent)percent.textContent=progress+'%';
-        if(bar)bar.style.width=progress+'%';
-        if(greeting){
-          var word=words[Math.min(words.length-1,Math.floor(progress/20))];
-          if(greeting.textContent!==word){
-            greeting.textContent=word;
-            greeting.animate([{opacity:.3,transform:'translateY(6px)'},{opacity:1,transform:'translateY(0)'}],{duration:280,easing:'ease-out'});
-          }
-        }
-        if(loaded&&elapsed>=minimum&&progress===100){reveal();return;}
-        if(elapsed>=maximum){reveal();return;}
-        window.setTimeout(animate,40);
+        var progress=Math.min(94,(elapsed/minimum)*94);
+        if(loaded&&elapsed>=minimum){finish();return;}
+        if(elapsed>=maximum){finish();return;}
+        setProgress(progress);
+        timer=window.setTimeout(tick,40);
       }
       if(!loaded)window.addEventListener('load',function(){loaded=true;},{once:true});
-      animate();
+      tick();
     })();
   </script>
   <div class="grain" aria-hidden="true"></div>
