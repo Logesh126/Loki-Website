@@ -39,16 +39,19 @@ header{background:var(--bg)!important;color:var(--ink)}
  .section h2{font-size:clamp(27px,8vw,38px)}
  .section-lead{font-size:14px}
 }
+
+/* Shared portfolio header — consistent across every page */
+.site-header{height:54px;min-height:54px;padding:0 3.8vw!important;border-bottom:1px solid rgba(255,255,255,.09);background:#09090d!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;position:relative;z-index:50}
+.site-header .logo{display:flex;align-items:center;justify-content:center;width:28px;height:32px;flex:0 0 28px;color:#f7f5fb!important;text-decoration:none}
+.site-header .brand-mark{display:block;width:25px;height:25px;line-height:0}
+.site-header .brand-mark svg{display:block;width:100%;height:100%}
+.site-header .main-nav{display:flex!important;align-items:center;justify-content:flex-end;gap:clamp(22px,2.6vw,44px)!important;margin-left:auto}
+.site-header .main-nav a{font-family:Arial,Helvetica,sans-serif!important;font-size:16px!important;font-weight:500!important;letter-spacing:-.025em!important;text-transform:none!important;color:#e9e7eb!important;line-height:1!important;white-space:nowrap}
+.site-header .main-nav a:hover{color:#b99aff!important}
+@media(max-width:760px){.site-header{height:auto;min-height:54px;padding:12px 5vw!important;align-items:flex-start!important;flex-direction:column!important}.site-header .main-nav{display:flex!important;flex-wrap:wrap;justify-content:flex-start;gap:16px 22px!important;width:100%;padding:8px 0 3px}.site-header .main-nav a{font-size:13px!important}}
 </style></head>
 <body id="top">
-<header><a class="logo" href="../index.html">LOGESH<span>✳</span></a><nav><a href="../index.html#work">Selected work</a><a href="../index.html#about">About</a><a hr
-/* Shared case-study layout system: align section copy with the heading column. */
-.section-head{display:grid;grid-template-columns:minmax(0,28.5%) minmax(0,1fr);column-gap:0;align-items:start}
-.section>.body-copy{width:71.5%;max-width:71.5%;margin:28px 0 0 28.5%;padding:0;min-width:0}
-.section>.body-copy p{max-width:100%;margin:0 0 18px;line-height:1.8}
-.section>.body-copy p:last-child{margin-bottom:0}
-@media(max-width:760px){.section-head{grid-template-columns:minmax(0,1fr);row-gap:10px}.section>.body-copy{width:100%;max-width:100%;margin:22px 0 0}}
-ef="../index.html#contact">Contact</a></nav><small>PROJECT / CASE STUDY</small></header>
+<header class="site-header"><a class="logo" href="../index.html" aria-label="Logesh home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M16 1.5 19.8 12.2 30.5 16l-10.7 3.8L16 30.5l-3.8-10.7L1.5 16l10.7-3.8L16 1.5Z" fill="currentColor"/><circle cx="16" cy="16" r="3" fill="var(--bg,#09090d)"/></svg></span></a><nav class="main-nav" aria-label="Main navigation"><a href="../index.html#about">About</a><a href="../index.html#experience">Experience</a><a href="../index.html#work">Work</a><a href="../index.html#testimonials">Kind words</a><a href="../index.html#contact">Contact</a><a class="resume-nav-link" href="../resume.pdf" target="_blank" rel="noopener">Resume</a></nav></header>
 <main>
 <section class="hero"><a class="back" href="mother-teresa-group.html">← BACK TO MOTHER TERESA PROJECT</a><p class="eyebrow">Mother Teresa Group / UI/UX Design / 04</p><h1>Mother Teresa College of <em>Agriculture.</em></h1><p class="lede">Connecting agricultural education with real-world learning — a responsive website redesign that brings academic programmes, practical field learning, research and sustainable agriculture into one discoverable experience.</p>
 <div class="meta"><div><label>Project type</label><b>Website Redesign</b></div><div><label>Industry</label><b>Agricultural Education</b></div><div><label>My role</label><b>UI/UX Designer</b></div><div><label>Platform</label><b>Responsive Website</b></div><div><label>Tools</label><b>Figma · MagicPattern</b></div></div>
