@@ -48,7 +48,8 @@ module.exports = async function handler(req, res) {
     return res.end("Image not found");
   }
   try {
-    const upstream = await fetch(source, { headers: { "User-Agent": "Mozilla/5.0" } });
+    const proxy = "https://images.weserv.nl/?url=" + encodeURIComponent(source) + "&output=jpg";
+    const upstream = await fetch(proxy, { headers: { "User-Agent": "Mozilla/5.0", "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8" } });
     if (!upstream.ok) {
       res.status(502).setHeader("Cache-Control", "no-store");
       return res.end("Image source unavailable");
