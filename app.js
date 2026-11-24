@@ -81,4 +81,38 @@
    if(reviews.length>1)restartRotation();
  }
 
+ 
+ // Site-wide scroll reveals: headings, copy, cards and controls enter as they reach view.
+ const motionTargets=[
+   '.hero-meta','.hero .eyebrow','.hero h1','.hero-bottom p','.hero-bottom .text-link','.hero-index',
+   '.section-kicker','.intro-grid h2','.intro-copy > *','.skills-marquee-heading',
+   '.experience-heading > *','.experience-scroll-note','.career-card',
+   '.marquee-heading > *','.marquee-item','.work-heading > *','.project-list-item',
+   '.testimonial-intro > *','.testimonial-stage .testimonial-card','.testimonial-footer',
+   '.contact > .eyebrow','.contact-link','.contact-bottom > *',
+   '.detail > *','.story .row > *','.project-gallery > *',
+   '.collection .section-head > *','.collection .work-row','.section .work-row',
+   'main > .section > *'
+ ].join(',');
+ const motionNodes=[...document.querySelectorAll(motionTargets)];
+ const uniqueMotionNodes=[...new Set(motionNodes)].filter(node=>!node.closest('.site-loader'));
+ uniqueMotionNodes.forEach((node,index)=>{
+   node.setAttribute('data-motion-reveal','');
+   const siblings=[...node.parentElement.children].filter(item=>item.matches('[data-motion-reveal]'));
+   node.style.setProperty('--motion-delay',Math.min(siblings.length-1,5)*85+'ms');
+ });
+ if('IntersectionObserver' in window){
+   const motionObserver=new IntersectionObserver(entries=>{
+     entries.forEach(entry=>{
+       if(entry.isIntersecting){
+         entry.target.classList.add('motion-visible');
+         motionObserver.unobserve(entry.target);
+       }
+     });
+   },{threshold:.12,rootMargin:'0px 0px -36px 0px'});
+   uniqueMotionNodes.forEach(node=>motionObserver.observe(node));
+ }else{
+   uniqueMotionNodes.forEach(node=>node.classList.add('motion-visible'));
+ }
+
 })();
