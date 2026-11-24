@@ -915,3 +915,27 @@ html body,html body button,html body input,html body textarea,html body select{f
 .site-header .main-nav{display:flex;align-items:center;justify-content:flex-end;gap:clamp(22px,2.6vw,44px);font-family:Arial,Helvetica,sans-serif;font-size:16px;letter-spacing:-.025em;text-transform:none}
 .site-header .main-nav a{font-size:16px;font-weight:500;letter-spacing:-.025em;text-transform:none;color:#e9e7eb;line-height:1;white-space:nowrap}
 }
+
+
+/* Global motion system — subtle editorial reveals and responsive interactions */
+html{scroll-behavior:smooth}
+[data-motion-reveal]{opacity:0;transform:translate3d(0,26px,0);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--motion-delay,0ms);will-change:opacity,transform}
+[data-motion-reveal].motion-visible{opacity:1;transform:translate3d(0,0,0)}
+.hero [data-motion-reveal]{animation:motion-hero-in .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--motion-delay,0ms)}
+@keyframes motion-hero-in{from{opacity:0;transform:translate3d(0,34px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+.project-list-item,.project-card,.career-card,.testimonial-card,.marquee-item,.work-row,.text-link,.contact-link{transition-timing-function:cubic-bezier(.2,.7,.2,1)}
+.project-list-item,.career-card,.marquee-item,.work-row{will-change:transform}
+.project-list-item:hover,.career-card:hover{transform:translate3d(0,-3px,0)}
+.marquee-item:hover{transform:translate3d(0,-4px,0)}
+.text-link{transition:color .25s ease,border-color .25s ease,transform .25s ease}
+.text-link:hover{transform:translate3d(0,-2px,0)}
+.contact-link{transition:letter-spacing .45s cubic-bezier(.2,.7,.2,1),color .3s ease}
+.contact-link:hover{letter-spacing:-.105em}
+.site-header .main-nav a{position:relative}
+.site-header .main-nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:1px;background:var(--accent);transition:right .3s ease}
+.site-header .main-nav a:hover:after{right:0}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ [data-motion-reveal],.hero [data-motion-reveal]{opacity:1;transform:none;animation:none;transition:none;will-change:auto}
+ .project-list-item,.career-card,.marquee-item,.work-row,.text-link,.contact-link,.site-header .main-nav a:after{transition:none}
+}
