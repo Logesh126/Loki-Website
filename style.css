@@ -1116,3 +1116,27 @@ body{background:#07070b}
 @media(max-width:760px){.universe-hero{min-height:calc(100svh - 58px);padding:22px 6vw 20px}.universe-scene{inset:10% -9% 28%}.universe-halo{width:88vw}.halo-b{width:67vw}.label-a{left:10%;top:20%}.label-b{right:8%;bottom:24%}.universe-coordinates{right:11%;top:9%}.universe-copy h1{font-size:clamp(76px,19vw,150px);margin-top:18px}.universe-bottomline{display:block;margin-top:22px}.universe-bottomline>p{font-size:23px}.universe-actions{margin-top:22px;gap:18px;flex-wrap:wrap}.universe-actions .hero-primary-link{padding:13px 15px}.universe-footer{margin-top:34px;font-size:7px;letter-spacing:.1em}.universe-footer span:last-child{display:none}.universe-caption{left:10%;right:10%;font-size:7px}.universe-topline{font-size:8px}}
 @media(max-width:390px){.universe-copy h1{font-size:19vw}.universe-actions{gap:14px}.universe-actions .hero-secondary-link{font-size:11px}.universe-bottomline>p{font-size:21px}.universe-footer{margin-top:28px}}
 @media(prefers-reduced-motion:reduce){.universe-hero *{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* JAPANESE INK WORLD — vermilion, paper and sumi */
+.universe-hero{background:#100807;color:#f7eee8}
+.universe-hero:before{background:radial-gradient(ellipse at 50% 38%,rgba(244,18,14,.11),transparent 43%),linear-gradient(180deg,#170807 0%,#090707 100%)}
+.universe-topline,.universe-footer{color:#b8a39a}
+.universe-topline i,.universe-caption b,.universe-footer b{color:#f32a20}
+.universe-scene{inset:2% 7% 10%;overflow:visible}
+.universe-grid{display:none}
+.universe-halo{display:none}
+.universe-scene canvas{filter:drop-shadow(0 18px 40px rgba(0,0,0,.24))}
+.universe-orbit-label{color:#f2b7a9}
+.label-a{left:3%;top:30%}.label-b{right:3%;bottom:28%;color:#c18d80}
+.universe-coordinates{color:#c7a69c}
+.universe-caption{color:#c5a89f}
+.universe-kicker{color:#f08c7e}
+.universe-kicker .hero-status-dot{background:#f3261d;box-shadow:0 0 14px #f3261d}
+.universe-copy h1{color:#fff4ee;text-shadow:0 10px 80px rgba(0,0,0,.65)}
+.universe-period{color:#f3261d}
+.universe-bottomline>p em{color:#ff6a59}
+.universe-actions .hero-primary-link{background:#f3261d;border-color:#f3261d;color:#fff8f4;box-shadow:0 8px 35px rgba(243,38,29,.18)}
+.universe-actions .hero-primary-link:hover{background:#ff4639}
+.universe-actions .hero-secondary-link{color:#e5c9c0}
+@media(max-width:760px){.universe-scene{inset:7% -12% 26%}.universe-orbit-label{font-size:7px}.universe-caption{bottom:1%}}
