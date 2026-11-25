@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-label="A lone samurai stands before a vermilion sun on an ink-brushed cliff">
+<defs>
+ <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" seed="8"/><feColorMatrix values=".22 0 0 0 .72 .22 0 0 0 .66 .22 0 0 0 .55 0 0 0 .13 0"/></filter>
+ <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".025" numOctaves="2" seed="12" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="13"/></filter>
+ <radialGradient id="sun"><stop stop-color="#f32619"/><stop offset=".88" stop-color="#e51b12"/><stop offset="1" stop-color="#c91510"/></radialGradient>
+ <linearGradient id="cloak" x2="1" y2="1"><stop stop-color="#080808"/><stop offset=".52" stop-color="#171514"/><stop offset="1" stop-color="#050505"/></linearGradient>
+ <clipPath id="paperclip"><rect width="900" height="1200"/></clipPath>
+</defs>
+<g clip-path="url(#paperclip)">
+ <rect width="900" height="1200" fill="#f4ead8"/>
+ <rect width="900" height="1200" filter="url(#paper)" opacity=".48"/>
+ <circle cx="455" cy="330" r="278" fill="url(#sun)" filter="url(#rough)"/>
+ <path d="M181 240 Q310 44 515 63 Q690 88 740 238" fill="none" stroke="#f94b32" stroke-width="5" opacity=".65"/>
+ <path d="M180 478 Q132 325 218 185 M697 480 Q776 333 713 184" fill="none" stroke="#f5d9c4" stroke-width="5" opacity=".9"/>
+ <!-- red ink flecks -->
+ <g fill="#d92317" opacity=".8">
+  <circle cx="700" cy="675" r="7"/><circle cx="739" cy="632" r="4"/><circle cx="766" cy="708" r="6"/><circle cx="684" cy="745" r="3"/><circle cx="802" cy="668" r="4"/><circle cx="640" cy="710" r="5"/><circle cx="747" cy="786" r="3"/><circle cx="576" cy="760" r="3"/><circle cx="832" cy="736" r="5"/><circle cx="602" cy="665" r="2"/>
+  <path d="M690 690l-32 25 8-34 29-16z"/><path d="M775 760l-18 26 4-33z"/>
+ </g>
+ <!-- distant black brush marks -->
+ <path d="M0 1055 Q170 1010 300 1040 T590 1020 T900 1042 L900 1200H0Z" fill="#171413" opacity=".12"/>
+ <!-- samurai trailing scarf -->
+ <path d="M470 390 Q575 392 650 465 Q578 445 530 426 Q603 486 679 490 Q586 490 508 449Z" fill="#11100f"/>
+ <!-- hat -->
+ <path d="M315 303 L420 247 L580 300 L442 292 L330 327Z" fill="#080808"/>
+ <path d="M330 322 Q430 298 562 309" fill="none" stroke="#f5eadb" stroke-width="5"/>
+ <path d="M430 294 L458 319 L430 340 L393 326Z" fill="#0b0a09"/>
+ <!-- head and neck -->
+ <path d="M414 325 Q446 308 470 333 L466 385 L425 397 L402 365Z" fill="#080808"/>
+ <path d="M426 342 Q449 332 465 347" fill="none" stroke="#f5eadb" stroke-width="3" opacity=".8"/>
+ <!-- body / kimono -->
+ <path d="M406 379 Q365 397 345 461 L324 605 Q307 710 326 847 Q348 894 424 895 Q496 890 525 850 Q505 777 518 685 L508 493 Q498 415 464 385Z" fill="url(#cloak)"/>
+ <path d="M404 395 Q374 500 382 610 Q377 760 359 870" fill="none" stroke="#e9dfd0" stroke-width="8" opacity=".78"/>
+ <path d="M466 396 Q496 505 486 630 Q490 768 529 832" fill="none" stroke="#e7dfd3" stroke-width="5" opacity=".55"/>
+ <path d="M349 460 Q304 488 288 570 L316 596 L375 540Z" fill="#0a0908"/>
+ <path d="M495 448 Q538 470 562 544 L523 572 L484 520Z" fill="#0a0908"/>
+ <!-- flowing lower robe -->
+ <path d="M338 822 Q408 848 510 822 Q557 868 686 921 Q601 899 547 953 Q483 1012 380 975 Q324 947 326 881Z" fill="#090908"/>
+ <path d="M499 851 Q579 902 665 928" fill="none" stroke="#e7dccd" stroke-width="5" opacity=".55"/>
+ <!-- legs -->
+ <path d="M370 892 L366 1023 L409 1030 L434 908Z M446 902 L474 1018 L519 1014 L495 884Z" fill="#090908"/>
+ <path d="M360 1017 Q389 1002 426 1022 L436 1050 L347 1050Z M467 1008 Q503 995 535 1019 L550 1048 L479 1048Z" fill="#080808"/>
+ <!-- katana -->
+ <path d="M345 545 Q256 670 113 796" fill="none" stroke="#080808" stroke-width="12" stroke-linecap="round"/>
+ <path d="M350 538 Q258 658 107 793" fill="none" stroke="#f3eadb" stroke-width="3" opacity=".9"/>
+ <path d="M327 553 L366 583" stroke="#080808" stroke-width="18" stroke-linecap="round"/>
+ <path d="M318 544 L348 570" stroke="#eee2d1" stroke-width="4"/>
+ <!-- ground, rough ink cliff -->
+ <path d="M0 1075 Q80 1040 151 1048 Q246 1010 331 1037 Q405 1008 486 1036 Q588 1014 672 1044 Q786 1005 900 1039 L900 1200H0Z" fill="#080808" filter="url(#rough)"/>
+ <path d="M0 1090 Q160 1058 265 1080 M610 1070 Q744 1036 900 1070" fill="none" stroke="#f4eadb" stroke-width="8" opacity=".88"/>
+ <path d="M400 1170 Q480 1122 568 1094" fill="none" stroke="#d91d15" stroke-width="6"/>
+ <path d="M58 1128l88-28-53 44z M760 1103l94-33-67 48z" fill="#f4eadb"/>
+</g>
+</svg>
