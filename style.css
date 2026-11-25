@@ -1007,3 +1007,14 @@ html{scroll-behavior:smooth}
 @media(max-width:760px){.hero-redesign{min-height:auto;padding:24px 6vw 34px}.hero-redesign .hero-meta{align-items:flex-start}.hero-redesign .hero-meta span:last-child{text-align:right}.hero-redesign .hero-main{display:flex;flex-direction:column;align-items:stretch;gap:34px;margin:58px auto 0}.hero-redesign h1{font-size:clamp(68px,14vw,108px);margin-bottom:24px}.hero-description{font-size:15px;max-width:540px}.hero-actions{margin-top:25px;gap:20px}.hero-footnote{margin-top:42px;font-size:9px}.hero-work-collage{width:100%;max-width:600px;height:clamp(330px,82vw,480px);align-self:center}.hero-work-main{left:8%;top:9%;width:68%;height:68%}.hero-work-top{right:0;width:34%;height:38%}.hero-work-bottom{right:2%;bottom:0;width:42%;height:47%}.hero-collage-index{bottom:8%;left:0}}
 @media(max-width:420px){.hero-redesign h1{font-size:clamp(60px,13.8vw,76px)}.hero-redesign .hero-main{margin-top:48px}.hero-footnote{flex-direction:column;gap:7px}.hero-work-collage{height:330px}.hero-work figcaption{padding:8px;font-size:8px}.hero-work figcaption b{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.hero-work img,.hero-primary-link{transition:none}}
+
+
+/* Hero: text-only layout — project collage intentionally removed */
+.hero-redesign .hero-main{grid-template-columns:minmax(0,1fr);max-width:1440px}
+.hero-redesign .hero-copy{max-width:900px;width:100%}
+.hero-redesign .hero-description{max-width:620px}
+.hero-redesign .hero-footnote{max-width:720px}
+@media(max-width:760px){
+ .hero-redesign .hero-main{display:block}
+ .hero-redesign .hero-copy{max-width:100%}
+}
