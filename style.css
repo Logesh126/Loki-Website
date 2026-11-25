@@ -1061,3 +1061,18 @@ p,li,.lede,.intro-copy p,.hero-bottom p,.work-heading>p,.story .row p,
 .scenery-wave.wave-two{stroke:#8eadd0;opacity:.38;stroke-width:1}
 .scenery-wave.wave-three{stroke:#b9a2ff;opacity:.25;stroke-width:1}
 @media(max-width:700px){.hero-redesign{padding-bottom:145px}.hero-scenery{height:125px;opacity:.7}}
+
+/* Hero coastal landscape — stronger depth, sunset glow and visible ocean */
+.hero-redesign{min-height:calc(100svh - 95px);padding-bottom:0;overflow:hidden;isolation:isolate}
+.hero-redesign .hero-meta,.hero-redesign .hero-main{position:relative;z-index:3}
+.hero-redesign .hero-scenery{position:absolute;z-index:1;left:0;right:0;bottom:0;height:clamp(235px,30vh,310px);opacity:1;overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.25) 12%,#000 34%);mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.25) 12%,#000 34%)}
+.hero-redesign .hero-scenery:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 28% 45% at 73% 54%,rgba(174,125,210,.34),transparent 72%),radial-gradient(ellipse 55% 48% at 55% 82%,rgba(71,91,133,.28),transparent 75%),linear-gradient(to bottom,rgba(9,9,13,0),rgba(12,15,27,.2) 45%,rgba(7,12,24,.96) 100%)}
+.hero-redesign .hero-scenery svg{position:absolute;inset:0;width:100%;height:100%}
+.hero-redesign .scenery-mountain-back{fill:#625b79;opacity:.48}
+.hero-redesign .scenery-mountain-front{fill:#34374f;opacity:.82}
+.hero-redesign .scenery-sea-fill{fill:url(#seaFade);opacity:1}
+.hero-redesign .scenery-wave{stroke:#a99bd4;stroke-width:1.6;opacity:.8}
+.hero-redesign .scenery-wave.wave-two{stroke:#7f9abf;stroke-width:1.35;opacity:.62}
+.hero-redesign .scenery-wave.wave-three{stroke:#b9a2e7;stroke-width:1.15;opacity:.46}
+@media(max-width:760px){.hero-redesign{min-height:calc(100svh - 75px);padding-bottom:0}.hero-redesign .hero-scenery{height:205px}.hero-redesign .hero-footnote{margin-bottom:125px}}
+@media(max-height:700px) and (min-width:761px){.hero-redesign{min-height:700px}.hero-redesign .hero-scenery{height:220px}}
