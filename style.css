@@ -1140,3 +1140,31 @@ body{background:#07070b}
 .universe-actions .hero-primary-link:hover{background:#ff4639}
 .universe-actions .hero-secondary-link{color:#e5c9c0}
 @media(max-width:760px){.universe-scene{inset:7% -12% 26%}.universe-orbit-label{font-size:7px}.universe-caption{bottom:1%}}
+
+
+/* JAPANESE SAMURAI POSTER — artwork-led hero */
+.universe-hero{background:#0d0908}
+.universe-hero:before{background:radial-gradient(ellipse at 50% 36%,rgba(190,24,16,.14),transparent 42%),linear-gradient(180deg,#170b09 0%,#090706 100%)}
+.samurai-poster-scene{inset:2% 0 8%;display:flex;align-items:center;justify-content:center;overflow:visible;pointer-events:none}
+.poster-frame{position:relative;height:min(76vh,760px);width:auto;aspect-ratio:3/4;max-width:min(54vw,560px);padding:9px;background:#e9ddc8;box-shadow:0 35px 100px rgba(0,0,0,.58),0 0 0 1px rgba(245,226,203,.22);transform:rotate(-1.2deg);overflow:hidden}
+.poster-frame:before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border:1px solid rgba(72,42,24,.18);box-shadow:inset 0 0 35px rgba(65,39,22,.12)}
+.samurai-poster-art{display:block;width:100%;height:100%;object-fit:cover;transition:transform .2s ease-out;will-change:transform}
+.universe-caption{left:0;right:0;bottom:0;color:#c9b2a5;font-size:8px;letter-spacing:.18em}
+.universe-copy{margin-top:auto}
+.universe-copy h1{font-size:clamp(76px,12vw,170px);letter-spacing:-.1em}
+.universe-kicker{color:#e6a99c}
+.universe-kicker .hero-status-dot{background:#f3261d;box-shadow:0 0 14px #f3261d}
+.universe-period{color:#f3261d}
+.universe-bottomline>p em{color:#f36a57}
+.universe-actions .hero-primary-link{background:#e92a1e;border-color:#e92a1e;color:#fff7f0;box-shadow:0 8px 35px rgba(243,38,29,.18)}
+.universe-actions .hero-primary-link:hover{background:#ff4639}
+.universe-actions .hero-secondary-link{color:#e6c9bf}
+.universe-footer{color:#b8a39a}
+@media(max-width:760px){
+ .samurai-poster-scene{inset:5% 0 30%}
+ .poster-frame{height:min(54vh,570px);max-width:76vw;padding:6px}
+ .universe-copy h1{font-size:clamp(70px,17vw,126px)}
+ .universe-caption{left:4%;right:4%;font-size:7px}
+}
+@media(max-width:390px){.poster-frame{height:48vh;max-width:78vw}}
+@media(prefers-reduced-motion:reduce){.samurai-poster-art{transform:none!important}}
