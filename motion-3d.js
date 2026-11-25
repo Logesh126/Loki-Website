@@ -18,7 +18,6 @@ if(canvas&&stage){
   camera=new THREE.PerspectiveCamera(34,stage.clientWidth/stage.clientHeight,.1,100);
   camera.position.set(0,0,9.4);
   scene.add(new THREE.HemisphereLight(0xded4f4,0x100d18,1.5));
-  const key=new THREE.AreaLight;
   const light=(color,intensity,pos)=>{const l=new THREE.PointLight(color,intensity,22);l.position.set(...pos);scene.add(l);};
   light(0xd7c2ff,125,[3.5,4,5]);light(0x7553bd,150,[-4,-2,2]);light(0xffffff,36,[0,1,-5]);
   assembly=new THREE.Group();scene.add(assembly);
