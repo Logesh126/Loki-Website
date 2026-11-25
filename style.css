@@ -393,8 +393,8 @@ html,body,body * ,body *::before,body *::after{
   --size-h3:24px;
   --size-h4:20px;
   --size-body:16px;
-  --size-small:12px;
-  --size-nav:14px;
+  --size-small:14px;
+  --size-nav:16px;
 }
 html,body,body *{
   font-family:var(--font-ui)!important;
@@ -1023,3 +1023,28 @@ html{scroll-behavior:smooth}
 /* Typography correction: section labels must follow the 14px -> 16px scale. */
 .section-pad > .section-kicker { font-size:16px !important; }
 @media (max-width:600px) { .section-pad > .section-kicker { font-size:16px !important; } }
+
+
+/* Final site-wide readable type scale: small labels 14px, navigation 16px, body copy 16px. */
+small,.eyebrow,.label,.meta,.metadata,.project-meta,.section-label,.caption,.tag,.kicker,
+.header-note,.section-kicker,.hero-meta,.hero-index,.text-link,.main-nav,body>header nav,
+body>header small,.detail .back,.facts label,.project-list-number,.project-list-copy small,
+.project-list-copy em,.project-list-category,.project-external-links a,.project-card-copy small,
+.skills-line,.archive-cta,.loading,footer,.footer-links,.social-links a,.client-work-number,
+.client-work-links a,.client-work-links span,.project-gallery figcaption,.mobile-nav-links a,
+.experience-footnote,.experience-scroll-note,.testimonial-scroll-hint,.testimonial-footer,
+.loader-caption,.loader-percent {
+  font-size:14px !important;
+}
+nav a,.main-nav a,.mobile-nav-links a,body>header nav a,
+.site-header>.main-nav a,.site-header>.mobile-nav-links a {
+  font-size:16px !important;
+}
+p,li,.lede,.intro-copy p,.hero-bottom p,.work-heading>p,.story .row p,
+.client-work-heading>p,.client-work-item p,.testimonial-note p {
+  font-size:16px !important;
+}
+.site-loader .loader-greeting { font-size:23px !important; }
+.site-loader .loader-caption { font-size:14px !important; }
+.site-loader .loader-percent { font-size:16px !important; }
+.section-pad > .section-kicker { font-size:16px !important; }
