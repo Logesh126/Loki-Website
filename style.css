@@ -1048,3 +1048,16 @@ p,li,.lede,.intro-copy p,.hero-bottom p,.work-heading>p,.story .row p,
 .site-loader .loader-caption { font-size:14px !important; }
 .site-loader .loader-percent { font-size:16px !important; }
 .section-pad > .section-kicker { font-size:16px !important; }
+
+
+/* Coastal mountain and sea scenery */
+.hero-redesign{position:relative;isolation:isolate;overflow:hidden;padding-bottom:190px}
+.hero-scenery{position:absolute;z-index:0;left:0;right:0;bottom:0;height:170px;pointer-events:none;opacity:.82;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 28%);mask-image:linear-gradient(to bottom,transparent 0%,#000 28%)}
+.hero-scenery svg{display:block;width:100%;height:100%}
+.scenery-mountain-back{fill:#6e668b;opacity:.12}
+.scenery-mountain-front{fill:#9a8bc2;opacity:.13}
+.scenery-sea-fill{fill:url(#seaFade);opacity:.7}
+.scenery-wave{fill:none;stroke:#a99bd4;stroke-width:1.25;opacity:.55}
+.scenery-wave.wave-two{stroke:#8eadd0;opacity:.38;stroke-width:1}
+.scenery-wave.wave-three{stroke:#b9a2ff;opacity:.25;stroke-width:1}
+@media(max-width:700px){.hero-redesign{padding-bottom:145px}.hero-scenery{height:125px;opacity:.7}}
