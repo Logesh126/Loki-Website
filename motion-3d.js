@@ -21,10 +21,31 @@ if(canvas&&stage){
   const light=(color,intensity,pos)=>{const l=new THREE.PointLight(color,intensity,22);l.position.set(...pos);scene.add(l);};
   light(0xd7c2ff,125,[3.5,4,5]);light(0x7553bd,150,[-4,-2,2]);light(0xffffff,36,[0,1,-5]);
   assembly=new THREE.Group();scene.add(assembly);
-  const coreGeo=new THREE.IcosahedronGeometry(1.12,5);
-  const coreMat=new THREE.MeshPhysicalMaterial({color:0x8e79b7,metalness:.86,roughness:.2,clearcoat:1,clearcoatRoughness:.12,iridescence:.8,iridescenceIOR:1.35,emissive:0x211533,emissiveIntensity:.3});
-  const core=new THREE.Mesh(coreGeo,coreMat);assembly.add(core);
-  const inner=new THREE.Mesh(new THREE.IcosahedronGeometry(.82,3),new THREE.MeshBasicMaterial({color:0xc8b6ef,wireframe:true,transparent:true,opacity:.13}));assembly.add(inner);
+  // Abstract samurai guardian: a sculptural kabuto silhouette, not a literal character.
+  const shellMat=new THREE.MeshPhysicalMaterial({color:0x17151f,metalness:.94,roughness:.22,clearcoat:1,clearcoatRoughness:.12,iridescence:.28});
+  const edgeMat=new THREE.MeshStandardMaterial({color:0xb9a2e8,metalness:.92,roughness:.2,emissive:0x26163f,emissiveIntensity:.24});
+  const shadowMat=new THREE.MeshStandardMaterial({color:0x08080d,metalness:.7,roughness:.32});
+  const faceMat=new THREE.MeshPhysicalMaterial({color:0x24212d,metalness:.9,roughness:.26,clearcoat:.8});
+  const guardian=new THREE.Group();assembly.add(guardian);
+  const crown=new THREE.Mesh(new THREE.SphereGeometry(1.03,72,48,0,Math.PI*2,0,Math.PI*.59),shellMat);
+  crown.scale.set(1.04,.88,.82);crown.position.y=.42;guardian.add(crown);
+  // Raised central ridge and lower kabuto rim.
+  const ridge=new THREE.Mesh(new THREE.CapsuleGeometry(.035,.92,6,12),edgeMat);ridge.position.set(0,.95,.63);ridge.rotation.x=-.18;guardian.add(ridge);
+  const rim=new THREE.Mesh(new THREE.TorusGeometry(.91,.045,14,100),edgeMat);rim.scale.set(1.1,.78,1);rim.position.set(0,.16,0);rim.rotation.x=Math.PI/2;guardian.add(rim);
+  // Face guard: layered angular plates with a dark, anonymous visor.
+  const plateShape=new THREE.Shape();plateShape.moveTo(-.72,.18);plateShape.lineTo(-.58,-.42);plateShape.lineTo(-.3,-.72);plateShape.lineTo(0,-.82);plateShape.lineTo(.3,-.72);plateShape.lineTo(.58,-.42);plateShape.lineTo(.72,.18);plateShape.lineTo(.48,.35);plateShape.lineTo(0,.22);plateShape.lineTo(-.48,.35);plateShape.closePath();
+  const plateGeo=new THREE.ExtrudeGeometry(plateShape,{depth:.13,bevelEnabled:true,bevelSegments:3,steps:1,bevelSize:.045,bevelThickness:.035});
+  const guard=new THREE.Mesh(plateGeo,faceMat);guard.position.set(0,-.25,.69);guardian.add(guard);
+  const visorShape=new THREE.Shape();visorShape.moveTo(-.46,.05);visorShape.lineTo(-.2,-.02);visorShape.lineTo(0,-.08);visorShape.lineTo(.2,-.02);visorShape.lineTo(.46,.05);visorShape.lineTo(.28,.14);visorShape.lineTo(0,.09);visorShape.lineTo(-.28,.14);visorShape.closePath();
+  const visor=new THREE.Mesh(new THREE.ExtrudeGeometry(visorShape,{depth:.035,bevelEnabled:true,bevelSize:.018,bevelThickness:.018,bevelSegments:2}),shadowMat);visor.position.set(0,-.04,.84);guardian.add(visor);
+  // Tapered side flares evoke traditional helmet wings in a restrained, modern way.
+  const wing=(side)=>{const curve=new THREE.CatmullRomCurve3([new THREE.Vector3(side*.78,.52,.05),new THREE.Vector3(side*1.16,.4,.08),new THREE.Vector3(side*1.35,.02,.12),new THREE.Vector3(side*1.16,-.34,.24)]);const mesh=new THREE.Mesh(new THREE.TubeGeometry(curve,36,.055,10,false),edgeMat);guardian.add(mesh);};
+  wing(-1);wing(1);
+  // Four-point crest: a custom faceted star mark integrated into the forehead.
+  const crestShape=new THREE.Shape();crestShape.moveTo(0,.36);crestShape.lineTo(.095,.095);crestShape.lineTo(.36,0);crestShape.lineTo(.095,-.095);crestShape.lineTo(0,-.36);crestShape.lineTo(-.095,-.095);crestShape.lineTo(-.36,0);crestShape.lineTo(-.095,.095);crestShape.closePath();
+  const crest=new THREE.Mesh(new THREE.ExtrudeGeometry(crestShape,{depth:.075,bevelEnabled:true,bevelSegments:3,bevelSize:.025,bevelThickness:.025}),edgeMat);crest.position.set(0,.42,1.01);guardian.add(crest);
+  const crestCore=new THREE.Mesh(new THREE.OctahedronGeometry(.075,0),new THREE.MeshBasicMaterial({color:0xf0e7ff}));crestCore.position.set(0,.42,1.105);guardian.add(crestCore);
+  guardian.scale.setScalar(1.08);
   const rings=[];
   const makeRing=(radius,tube,rotation,material)=>{const ring=new THREE.Mesh(new THREE.TorusGeometry(radius,tube,18,220),material);ring.rotation.set(...rotation);assembly.add(ring);rings.push(ring);return ring;};
   const gold=new THREE.MeshStandardMaterial({color:0xc8b5e8,metalness:.9,roughness:.25,emissive:0x24183b,emissiveIntensity:.18});
