@@ -1037,3 +1037,48 @@ body{background:#07070b}
 @media(max-width:760px){.hero-redesign .hero-main{display:flex;flex-direction:column;gap:18px;margin-top:48px}.hero-redesign .hero-copy{width:100%}.hero-3d-stage{width:100%;min-height:390px;max-width:600px;margin-top:0}.hero-3d-caption{bottom:4%}.hero-3d-coordinate{top:5%}.hero-redesign h1{font-size:clamp(68px,14vw,108px)}}
 @media(max-width:420px){.hero-3d-stage{min-height:330px}.hero-3d-caption{font-size:8px}.hero-3d-coordinate{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.hero-3d-stage{opacity:.92}}
+
+
+/* Expanded portfolio direction — Field Notes / Design Lab */
+.field-notes,.design-lab{padding:clamp(88px,11vw,160px) clamp(22px,6vw,92px);overflow:hidden}
+.field-notes{background:radial-gradient(ellipse at 15% 35%,rgba(124,91,190,.12),transparent 38%),#0b0a10}
+.field-notes-heading{display:grid;grid-template-columns:1fr minmax(260px,.55fr);column-gap:7vw;align-items:end;margin:clamp(54px,8vw,108px) auto 70px;max-width:1440px}
+.field-notes-heading .eyebrow{grid-column:1/-1;margin:0 0 24px;color:#c4b3ff}
+.field-notes-heading h2,.lab-heading h2{font-size:clamp(64px,9.4vw,140px);line-height:.84;letter-spacing:-.105em;margin:0}
+.field-notes-heading h2 em{font-family:Georgia,serif;font-weight:400;color:#b9a2ff}
+.field-notes-lead{max-width:420px;color:#bdb7c7;font-size:clamp(15px,1.35vw,18px);line-height:1.85;margin:0 0 5px}
+.principle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1440px;margin:auto}
+.principle-card{position:relative;min-height:370px;padding:clamp(24px,3vw,42px);border:1px solid rgba(255,255,255,.11);background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));display:flex;flex-direction:column;align-items:flex-start;transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .4s ease,background .4s ease}
+.principle-card:hover{transform:translateY(-8px);border-color:rgba(185,162,255,.45);background:linear-gradient(145deg,rgba(185,162,255,.09),rgba(255,255,255,.012))}
+.principle-number,.principle-tag,.field-notes-foot,.lab-small-label,.lab-caption,.lab-coordinate{font:9px 'DM Mono',monospace;letter-spacing:.13em;color:#938ba1}
+.principle-glyph{position:relative;width:94px;height:94px;margin:42px 0 34px;display:grid;place-items:center}
+.principle-glyph i{position:absolute;display:block;border:1px solid rgba(185,162,255,.7);border-radius:50%;transition:transform .7s cubic-bezier(.2,.7,.2,1),background .5s ease}
+.glyph-focus i:nth-child(1){width:26px;height:26px}.glyph-focus i:nth-child(2){width:56px;height:56px}.glyph-focus i:nth-child(3){width:86px;height:86px;border-style:dashed}
+.glyph-form i:nth-child(1){width:25px;height:70px;border-radius:50%;transform:rotate(45deg)}.glyph-form i:nth-child(2){width:25px;height:70px;border-radius:50%;transform:rotate(-45deg)}.glyph-form i:nth-child(3){width:22px;height:22px;background:#b9a2ff}
+.glyph-motion i:nth-child(1){width:22px;height:22px;background:#b9a2ff}.glyph-motion i:nth-child(2){width:52px;height:52px;border-style:dashed}.glyph-motion i:nth-child(3){width:86px;height:86px;border-color:rgba(185,162,255,.25)}
+.principle-card:hover .principle-glyph i:nth-child(2){transform:rotate(35deg) scale(1.12)}.principle-card:hover .principle-glyph i:nth-child(3){transform:rotate(-28deg)}
+.principle-card h3{font-size:clamp(25px,2.3vw,34px);letter-spacing:-.06em;margin:0 0 13px}.principle-card p{max-width:330px;color:#aaa4b2;line-height:1.75;font-size:14px;margin:0 0 30px}.principle-tag{margin-top:auto;color:#c0b1e9;font-size:8px}
+.field-notes-foot{max-width:1440px;margin:72px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:20px;align-items:center}.field-notes-foot strong{font:500 clamp(17px,2vw,25px) 'Outfit',sans-serif;letter-spacing:-.04em;color:#eae5f2}
+.design-lab{background:#07070b;position:relative}
+.lab-heading{display:grid;grid-template-columns:1fr minmax(240px,.42fr);align-items:end;gap:7vw;margin:clamp(52px,8vw,100px) auto 58px;max-width:1440px}
+.lab-heading .eyebrow{color:#b9a2ff;margin:0 0 24px}
+.lab-heading>p{max-width:360px;color:#aaa4b2;line-height:1.85;margin:0 0 7px}
+.lab-canvas{position:relative;max-width:1440px;height:clamp(380px,52vw,690px);margin:auto;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:radial-gradient(ellipse at 50% 50%,rgba(94,64,157,.2),transparent 36%),linear-gradient(135deg,#111019,#08080d 65%);isolation:isolate}
+.lab-canvas:before,.lab-canvas:after{content:"";position:absolute;inset:0;pointer-events:none}
+.lab-canvas:before{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(ellipse at center,black,transparent 78%)}
+.lab-canvas:after{background:radial-gradient(ellipse at center,transparent 25%,rgba(0,0,0,.45) 100%)}
+.lab-art{position:absolute;inset:0;display:grid;place-items:center;perspective:900px}
+.lab-core{position:absolute;width:clamp(110px,18vw,240px);aspect-ratio:1;border-radius:38% 62% 57% 43%/43% 40% 60% 57%;background:radial-gradient(circle at 32% 25%,#f0eaff 0,#b9a2ff 9%,#7655b9 32%,#302344 62%,#09080f 78%);box-shadow:inset -28px -28px 50px rgba(0,0,0,.7),inset 12px 12px 24px rgba(255,255,255,.28),0 0 100px rgba(134,95,218,.27);animation:lab-morph 11s ease-in-out infinite,lab-float 7s ease-in-out infinite;transition:filter .4s ease}
+.lab-orbit-ring{position:absolute;width:clamp(250px,42vw,570px);height:clamp(120px,18vw,240px);border:1px solid rgba(205,188,255,.45);border-radius:50%;transform:rotate(-24deg);animation:lab-spin 18s linear infinite}
+.ring-b{width:clamp(210px,36vw,490px);height:clamp(210px,36vw,490px);border-color:rgba(255,255,255,.16);transform:rotateX(66deg) rotateZ(28deg);animation-duration:28s;animation-direction:reverse}
+.lab-cross{position:absolute;color:#d3c3ff;font:24px 'DM Mono',monospace}.cross-a{left:24%;top:25%}.cross-b{right:22%;bottom:27%}
+.lab-coordinate{position:absolute;right:28px;top:26px;line-height:1.8;text-align:right}
+.lab-caption{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;justify-content:space-between;gap:18px;color:#c3bacf}
+.lab-canvas:hover .lab-core{filter:hue-rotate(22deg) brightness(1.15)}
+.lab-bottom-grid{max-width:1440px;margin:48px auto 0;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+.lab-bottom-grid h3{max-width:700px;font-size:clamp(22px,3vw,40px);line-height:1.2;letter-spacing:-.06em;margin:18px 0 0;font-weight:500}
+.lab-link{display:flex;align-items:center;gap:24px;padding:17px 0;border-bottom:1px solid #b9a2ff;color:#e9e4f2;font-size:13px;white-space:nowrap}.lab-link span{color:#b9a2ff;font-size:20px;transition:transform .3s ease}.lab-link:hover span{transform:translate(4px,-4px)}
+@keyframes lab-spin{to{rotate:336deg}}@keyframes lab-morph{0%,100%{border-radius:38% 62% 57% 43%/43% 40% 60% 57%;transform:rotate(-18deg) scale(.96)}50%{border-radius:58% 42% 38% 62%/55% 60% 40% 45%;transform:rotate(18deg) scale(1.04)}}@keyframes lab-float{0%,100%{translate:0 0}50%{translate:0 -14px}}
+@media(max-width:850px){.field-notes-heading,.lab-heading{grid-template-columns:1fr;gap:26px}.field-notes-lead{max-width:600px}.principle-card{min-height:340px}.lab-bottom-grid{grid-template-columns:1fr;gap:24px}.lab-link{justify-self:start}}
+@media(max-width:620px){.field-notes,.design-lab{padding:82px 6vw}.field-notes-heading{margin:56px auto 44px}.field-notes-heading h2,.lab-heading h2{font-size:clamp(60px,14vw,88px)}.principle-grid{grid-template-columns:1fr;gap:10px}.principle-card{min-height:310px;padding:25px}.principle-glyph{margin:28px 0 24px}.field-notes-foot{flex-wrap:wrap;margin-top:46px}.field-notes-foot strong{order:3;width:100%}.lab-heading{margin:54px auto 38px}.lab-canvas{height:430px}.lab-caption{left:14px;right:14px;bottom:14px;font-size:8px;flex-direction:column;gap:6px}.lab-coordinate{right:14px;top:14px}.lab-bottom-grid{margin-top:32px}.lab-bottom-grid h3{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.principle-card,.principle-glyph i,.lab-core,.lab-orbit-ring{animation:none!important;transition:none!important}}
