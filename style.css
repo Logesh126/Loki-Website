@@ -971,3 +971,39 @@ html{scroll-behavior:smooth}
 @media(max-width:700px){.hero{min-height:auto;padding:25px 6vw 28px}.hero-meta{align-items:flex-start}.hero-meta span:last-child{text-align:right}.hero-main{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:65px auto 28px}.hero-copy{width:100%}.hero-copy>.eyebrow{margin-bottom:22px}.hero h1{font-size:clamp(66px,15vw,104px);margin-bottom:27px}.hero-bottom{display:flex;flex-direction:column;align-items:flex-start;gap:13px}.hero-bottom p{max-width:520px;font-size:14px}.hero-artifact{width:100%;max-width:430px;align-self:center;margin:10px auto 0;aspect-ratio:1.15/1}.artifact-window{width:76%}.artifact-window-body{min-height:185px}.artifact-dashboard{padding:12px}.artifact-metric{margin-top:15px}.artifact-metric strong{font-size:30px}.artifact-chart{height:47px;margin-top:12px}.note-type{left:1%;top:15%;padding:11px 13px}.note-type strong{font-size:17px}.note-colour{right:0;bottom:14%;padding:10px}.note-colour i{width:15px;height:15px}.artifact-stamp{left:8%;bottom:3%}.artifact-spark{right:10%;top:6%;font-size:27px}.hero-index{margin-top:4px}}
 @media(max-width:390px){.hero h1{font-size:clamp(58px,14.5vw,72px)}.artifact-window{width:79%}.artifact-window-body{min-height:165px}.artifact-sidebar{gap:14px}.artifact-dashboard{padding:10px}.artifact-greeting{font-size:9px}.artifact-metric strong{font-size:26px}.note-type{left:-1%}.note-type strong{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.artifact-window,.artifact-spark{animation:none}}
+
+/* Hero redesign v2 — real portfolio work, confident typography, no fabricated UI */
+.hero-redesign{position:relative;min-height:min(820px,calc(100svh - 54px));padding:clamp(24px,3vw,42px) clamp(22px,5vw,76px) 28px;overflow:hidden;background:radial-gradient(ellipse at 78% 45%,rgba(185,162,255,.10),transparent 42%),#09090d}
+.hero-redesign .hero-main{width:100%;max-width:1440px;display:grid;grid-template-columns:minmax(0,.96fr) minmax(440px,1.04fr);align-items:center;gap:clamp(30px,5vw,82px);margin:clamp(45px,7vh,78px) auto 30px}
+.hero-redesign .hero-copy{position:relative;z-index:2;min-width:0}
+.hero-redesign .hero-copy>.eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 clamp(25px,4vh,42px);color:#b9a2ff}
+.hero-redesign .hero-status-dot{width:7px;height:7px;border-radius:50%;background:#a6e4bd;box-shadow:0 0 12px rgba(166,228,189,.55)}
+.hero-redesign h1{margin:0 0 28px;font-size:clamp(76px,9.3vw,144px);line-height:.82;letter-spacing:-.105em;max-width:760px}
+.hero-redesign h1 em{font-family:Georgia,serif;font-weight:400;color:#b9a2ff;letter-spacing:-.09em}
+.hero-description{max-width:490px;margin:0;color:#c9c4ce;font-size:clamp(15px,1.25vw,18px);line-height:1.8}
+.hero-actions{display:flex;align-items:center;gap:26px;margin-top:32px;flex-wrap:wrap}
+.hero-primary-link,.hero-secondary-link{display:inline-flex;align-items:center;gap:22px;text-decoration:none;font:500 13px 'Outfit',sans-serif}
+.hero-primary-link{padding:14px 18px;border:1px solid rgba(185,162,255,.55);border-radius:3px;background:#b9a2ff;color:#09090d;transition:transform .25s ease,background .25s ease}
+.hero-primary-link:hover{transform:translateY(-3px);background:#d3c5ff}
+.hero-primary-link span{font-size:17px}
+.hero-secondary-link{color:#e8e4ed;transition:color .25s ease}.hero-secondary-link:hover{color:#b9a2ff}
+.hero-secondary-link span{color:#b9a2ff}
+.hero-footnote{display:flex;justify-content:space-between;gap:18px;max-width:570px;margin-top:clamp(55px,9vh,100px);padding-top:16px;border-top:1px solid rgba(255,255,255,.13);color:#8e8995;font:10px 'DM Mono',monospace;letter-spacing:.02em}
+.hero-work-collage{position:relative;width:100%;max-width:690px;height:clamp(390px,43vw,590px);justify-self:end}
+.hero-work{position:absolute;margin:0;overflow:hidden;background:#17151d;border:1px solid rgba(255,255,255,.18);box-shadow:0 22px 65px rgba(0,0,0,.42);border-radius:3px}
+.hero-work img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s ease}
+.hero-work:hover img{transform:scale(1.045);filter:saturate(1.08)}
+.hero-work figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px;background:linear-gradient(transparent,rgba(0,0,0,.82));color:#f5f1f8;font:9px 'DM Mono',monospace}
+.hero-work figcaption b{font:500 10px 'Outfit',sans-serif}
+.hero-work-main{left:8%;top:9%;width:68%;height:67%;transform:rotate(-3deg);z-index:2}
+.hero-work-main img{object-position:center}
+.hero-work-top{right:0;top:0;width:34%;height:38%;transform:rotate(5deg);z-index:3}
+.hero-work-top img{object-position:center}
+.hero-work-bottom{right:2%;bottom:1%;width:42%;height:48%;transform:rotate(3deg);z-index:4}
+.hero-work-bottom img{object-position:center}
+.hero-collage-index{position:absolute;left:0;bottom:9%;z-index:5;color:#a9a3b0;font:9px/1.5 'DM Mono',monospace;letter-spacing:.12em}
+.hero-collage-index span{display:inline-grid;place-items:center;width:26px;height:26px;margin-top:9px;border:1px solid rgba(185,162,255,.55);border-radius:50%;color:#b9a2ff;font-size:15px}
+@media(max-width:1050px){.hero-redesign .hero-main{grid-template-columns:minmax(0,.9fr) minmax(360px,1.1fr);gap:24px}.hero-redesign h1{font-size:clamp(68px,8.8vw,104px)}.hero-work-collage{height:430px}.hero-footnote{margin-top:55px}}
+@media(max-width:760px){.hero-redesign{min-height:auto;padding:24px 6vw 34px}.hero-redesign .hero-meta{align-items:flex-start}.hero-redesign .hero-meta span:last-child{text-align:right}.hero-redesign .hero-main{display:flex;flex-direction:column;align-items:stretch;gap:34px;margin:58px auto 0}.hero-redesign h1{font-size:clamp(68px,14vw,108px);margin-bottom:24px}.hero-description{font-size:15px;max-width:540px}.hero-actions{margin-top:25px;gap:20px}.hero-footnote{margin-top:42px;font-size:9px}.hero-work-collage{width:100%;max-width:600px;height:clamp(330px,82vw,480px);align-self:center}.hero-work-main{left:8%;top:9%;width:68%;height:68%}.hero-work-top{right:0;width:34%;height:38%}.hero-work-bottom{right:2%;bottom:0;width:42%;height:47%}.hero-collage-index{bottom:8%;left:0}}
+@media(max-width:420px){.hero-redesign h1{font-size:clamp(60px,13.8vw,76px)}.hero-redesign .hero-main{margin-top:48px}.hero-footnote{flex-direction:column;gap:7px}.hero-work-collage{height:330px}.hero-work figcaption{padding:8px;font-size:8px}.hero-work figcaption b{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.hero-work img,.hero-primary-link{transition:none}}
