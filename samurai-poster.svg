@@ -7,18 +7,13 @@
  <clipPath id="paperclip"><rect width="900" height="1200"/></clipPath>
 </defs>
 <g clip-path="url(#paperclip)">
- <rect width="900" height="1200" fill="#f4ead8"/>
- <rect width="900" height="1200" filter="url(#paper)" opacity=".48"/>
  <circle cx="455" cy="330" r="278" fill="url(#sun)" filter="url(#rough)"/>
- <path d="M181 240 Q310 44 515 63 Q690 88 740 238" fill="none" stroke="#f94b32" stroke-width="5" opacity=".65"/>
- <path d="M180 478 Q132 325 218 185 M697 480 Q776 333 713 184" fill="none" stroke="#f5d9c4" stroke-width="5" opacity=".9"/>
  <!-- red ink flecks -->
  <g fill="#d92317" opacity=".8">
   <circle cx="700" cy="675" r="7"/><circle cx="739" cy="632" r="4"/><circle cx="766" cy="708" r="6"/><circle cx="684" cy="745" r="3"/><circle cx="802" cy="668" r="4"/><circle cx="640" cy="710" r="5"/><circle cx="747" cy="786" r="3"/><circle cx="576" cy="760" r="3"/><circle cx="832" cy="736" r="5"/><circle cx="602" cy="665" r="2"/>
   <path d="M690 690l-32 25 8-34 29-16z"/><path d="M775 760l-18 26 4-33z"/>
  </g>
  <!-- distant black brush marks -->
- <path d="M0 1055 Q170 1010 300 1040 T590 1020 T900 1042 L900 1200H0Z" fill="#171413" opacity=".12"/>
  <!-- samurai trailing scarf -->
  <path d="M470 390 Q575 392 650 465 Q578 445 530 426 Q603 486 679 490 Q586 490 508 449Z" fill="#11100f"/>
  <!-- hat -->
@@ -47,8 +42,6 @@
  <path d="M318 544 L348 570" stroke="#eee2d1" stroke-width="4"/>
  <!-- ground, rough ink cliff -->
  <path d="M0 1075 Q80 1040 151 1048 Q246 1010 331 1037 Q405 1008 486 1036 Q588 1014 672 1044 Q786 1005 900 1039 L900 1200H0Z" fill="#080808" filter="url(#rough)"/>
- <path d="M0 1090 Q160 1058 265 1080 M610 1070 Q744 1036 900 1070" fill="none" stroke="#f4eadb" stroke-width="8" opacity=".88"/>
  <path d="M400 1170 Q480 1122 568 1094" fill="none" stroke="#d91d15" stroke-width="6"/>
- <path d="M58 1128l88-28-53 44z M760 1103l94-33-67 48z" fill="#f4eadb"/>
 </g>
 </svg>
