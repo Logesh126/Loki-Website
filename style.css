@@ -1048,3 +1048,54 @@ p,li,.lede,.intro-copy p,.hero-bottom p,.work-heading>p,.story .row p,
 .site-loader .loader-caption { font-size:14px !important; }
 .site-loader .loader-percent { font-size:16px !important; }
 .section-pad > .section-kicker { font-size:16px !important; }
+
+
+/* On-page resume viewer */
+.resume-viewer{position:fixed;inset:0;z-index:1000;display:none;color:#24232b}
+.resume-viewer.is-open{display:block}
+.resume-viewer-backdrop{position:absolute;inset:0;background:rgba(4,4,9,.84);backdrop-filter:blur(12px)}
+.resume-viewer-dialog{position:absolute;inset:3vh 4vw;background:#f5f4f1;border:1px solid rgba(255,255,255,.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 100px rgba(0,0,0,.5);outline:none}
+.resume-viewer-toolbar{flex:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 22px;background:#101017;color:#f6f3fa;border-bottom:1px solid #302b3a}
+.resume-viewer-toolbar>div:first-child{display:flex;align-items:baseline;gap:13px}
+.resume-viewer-toolbar strong{font-size:16px;letter-spacing:-.03em}
+.resume-viewer-toolbar span{font-size:12px;color:#aaa3b8}
+.resume-viewer-actions{display:flex;align-items:center;gap:12px}
+.resume-viewer-actions button{border:1px solid #66538e;background:transparent;color:#eee8ff;border-radius:7px;padding:9px 13px;font:inherit;font-size:12px;cursor:pointer}
+.resume-viewer-actions button:hover{background:#b9a2ff;color:#17131f}
+.resume-viewer-actions .resume-close{width:36px;height:36px;padding:0;font-size:24px;line-height:1}
+.resume-viewer-scroll{overflow:auto;padding:34px 18px 55px}
+.resume-document{width:min(100%,850px);margin:0 auto;background:#fff;color:#25232b;padding:52px 62px;box-shadow:0 8px 35px rgba(0,0,0,.1);font:14px/1.55 Arial,sans-serif}
+.resume-document-head{border-bottom:2px solid #9d83e9;padding-bottom:20px;margin-bottom:22px}
+.resume-document-head h1{font-size:34px;line-height:1.1;margin:0 0 5px;letter-spacing:-.04em;color:#17151e}
+.resume-document-head p{font-size:12px;margin:5px 0;color:#514d5b}
+.resume-document a{color:#6745b6;text-decoration:underline}
+.resume-role{font-size:15px!important;font-weight:700;color:#6d52a5!important}
+.resume-document section{margin:23px 0 0;break-inside:auto}
+.resume-document h2{font-size:16px;text-transform:uppercase;letter-spacing:.1em;color:#6549a7;border-bottom:1px solid #ddd6ee;padding-bottom:6px;margin:0 0 11px}
+.resume-document h3{font-size:14px;margin:15px 0 3px;color:#24212b}
+.resume-document h3 span{float:right;font-size:11px;font-weight:400;color:#77717f}
+.resume-document p{font-size:12.5px;line-height:1.55;margin:5px 0 9px}
+.resume-document .resume-subtitle{font-size:12px;color:#6a6275;font-style:italic;margin-top:0}
+.resume-document ul{padding-left:18px;margin:6px 0 12px}
+.resume-document li{font-size:12.2px;line-height:1.5;margin:4px 0}
+body.resume-viewer-open{overflow:hidden}
+@media(max-width:650px){
+ .resume-viewer-dialog{inset:0;border-radius:0}
+ .resume-viewer-toolbar{padding:12px 14px;align-items:flex-start}
+ .resume-viewer-toolbar>div:first-child{display:flex;flex-direction:column;gap:2px}
+ .resume-viewer-toolbar span{font-size:10px}
+ .resume-viewer-actions{gap:7px}
+ .resume-viewer-actions button{padding:8px 9px;font-size:11px}
+ .resume-viewer-scroll{padding:15px 8px 35px}
+ .resume-document{padding:30px 22px}
+ .resume-document h3 span{float:none;display:block;margin-top:2px}
+}
+@media print{
+ body>*:not(.resume-viewer){display:none!important}
+ .resume-viewer{display:block!important;position:static!important;color:#000}
+ .resume-viewer-backdrop,.resume-viewer-toolbar{display:none!important}
+ .resume-viewer-dialog{position:static!important;inset:auto!important;border:0!important;box-shadow:none!important;overflow:visible!important}
+ .resume-viewer-scroll{overflow:visible!important;padding:0!important}
+ .resume-document{width:100%!important;max-width:none!important;box-shadow:none!important;padding:0!important}
+ .resume-document section{break-inside:avoid}
+}
