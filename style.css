@@ -1099,3 +1099,60 @@ body.resume-viewer-open{overflow:hidden}
  .resume-document{width:100%!important;max-width:none!important;box-shadow:none!important;padding:0!important}
  .resume-document section{break-inside:avoid}
 }
+
+/* 2026 motion-led portfolio direction */
+:root{--bg:#0b0b0a;--panel:#131311;--line:rgba(236,232,225,.12);--text:#ece8e1;--muted:#a8a39a;--accent:#ff4d1c;--sans:'Geist',system-ui,sans-serif;--mono:'Geist Mono',monospace}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a:hover{color:var(--accent)}
+.grain{opacity:.045;z-index:280}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:60;background:linear-gradient(#0b0b0a 8%,transparent);border:0;padding:22px 4vw;grid-template-columns:auto 1fr}
+.logo{font-family:var(--sans);font-size:1.15rem;font-weight:600}
+.brand-mark{color:var(--accent)}
+.main-nav{justify-self:end;gap:clamp(14px,2.4vw,34px);font:11px var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.main-nav a{transition:color .3s}
+.resume-nav-link{border-bottom:1px solid var(--accent);padding-bottom:4px}
+.hero{min-height:100svh;background:#0b0b0a;position:relative;isolation:isolate}
+#webgl{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
+.hero-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(11,11,10,.84),rgba(11,11,10,.2) 75%),linear-gradient(0deg,#0b0b0a 0%,transparent 55%)}
+.hero-meta,.hero-footnote,.section-kicker,.eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.07em;font-size:11px}
+.hero-main{min-height:90svh;display:flex;align-items:flex-end;padding:10rem 4vw 4rem}
+.hero-copy{max-width:1100px}
+.hero-copy h1{font-size:clamp(4rem,13vw,13rem);line-height:.82;letter-spacing:-.075em;font-weight:500}
+.hero-copy h1 em{color:var(--accent);font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.hero-description{max-width:470px;color:#c4bfb7;font-size:clamp(1rem,1.5vw,1.2rem);margin-top:2.2rem}
+.hero-status-dot{background:var(--accent)}
+.hero-primary-link{background:var(--accent);color:#0b0b0a;padding:14px 20px;border-radius:2px}
+.hero-primary-link:hover{background:#ece8e1;color:#0b0b0a}
+.hero-secondary-link{border-bottom:1px solid var(--line);padding-bottom:8px}
+.section-pad{padding:9rem 4vw}
+.section-kicker{color:var(--muted)}
+h2,.work-heading h2,.experience-heading h2,.testimonial-intro h2{font-weight:500;letter-spacing:-.06em}
+.intro-grid{grid-template-columns:1.2fr 1fr;gap:8vw}
+.intro-grid h2{font-size:clamp(3rem,7vw,7rem);line-height:.9}
+.intro-copy .lead{font-size:clamp(1.4rem,2.4vw,2.2rem);line-height:1.2;letter-spacing:-.03em}
+.skills-marquee,.experience,.marquee-gallery,.work,.testimonials,.contact{border-color:var(--line)}
+.skill-category{color:var(--accent)!important}
+.experience-heading h2,.work-heading h2,.testimonial-intro h2{font-size:clamp(3rem,7vw,7rem)}
+.career-card{border-radius:2px;background:#131311}
+.career-marker{background:var(--accent)}
+.marquee-item{border-radius:2px}
+.work-heading{align-items:end}
+.project-card,.project-grid>*{border-radius:2px}
+.testimonial-card{border-radius:2px;background:#131311}
+.contact-link{font-size:clamp(3.4rem,11vw,11rem);letter-spacing:-.07em;line-height:.88}
+.contact-link em{color:var(--accent);font-family:'Instrument Serif',Georgia,serif}
+footer{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.menu-toggle{color:var(--text)}
+.resume-viewer-dialog{border-radius:2px}
+.resume-viewer-toolbar{background:#131311}
+.resume-viewer-actions button{border-radius:2px}
+@media(max-width:760px){
+ .site-header{padding:16px 5vw}
+ .main-nav{gap:10px;font-size:9px}
+ .hero-main{padding:8rem 5vw 3rem;min-height:92svh}
+ .hero-copy h1{font-size:clamp(4rem,17vw,7rem)}
+ .section-pad{padding:6rem 5vw}
+ .intro-grid{grid-template-columns:1fr;gap:2rem}
+ .hero-shade{background:linear-gradient(90deg,rgba(11,11,10,.72),rgba(11,11,10,.25)),linear-gradient(0deg,#0b0b0a,transparent 65%)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
