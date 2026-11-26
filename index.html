@@ -111,7 +111,7 @@
   <header class="site-header">
     <a class="logo" href="index.html" aria-label="Logesh home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false"><path d="M16 1.5 19.8 12.2 30.5 16l-10.7 3.8L16 30.5l-3.8-10.7L1.5 16l10.7-3.8L16 1.5Z" fill="currentColor"/><circle cx="16" cy="16" r="3" fill="var(--bg,#09090d)"/></svg></span></a>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="main-nav" aria-label="Main navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#testimonials">Kind words</a><a href="#contact">Contact</a><a class="resume-nav-link" href="/resume.pdf" target="_blank" rel="noopener">Resume</a></nav>
+    <nav class="main-nav" aria-label="Main navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#testimonials">Kind words</a><a href="#contact">Contact</a><a class="resume-nav-link" href="#resume-viewer" id="resume-open" aria-haspopup="dialog">Resume</a></nav>
   </header>
   <main>
     <section class="hero hero-redesign" id="top">
@@ -295,5 +295,70 @@
     </section>
   </main>
   <footer><span>© 2026 · Designed by Logesh</span><a href="#top">Back to top ↑</a></footer>
+
+  <section class="resume-viewer" id="resume-viewer" aria-hidden="true">
+    <div class="resume-viewer-backdrop" data-resume-close></div>
+    <div class="resume-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="resume-viewer-title" tabindex="-1">
+      <header class="resume-viewer-toolbar">
+        <div><strong id="resume-viewer-title">M.S. Logesh</strong><span>UI/UX & Product Designer · Resume</span></div>
+        <div class="resume-viewer-actions"><button type="button" id="resume-print">Print / Save PDF</button><button type="button" class="resume-close" data-resume-close aria-label="Close resume">×</button></div>
+      </header>
+      <div class="resume-viewer-scroll">
+        <article class="resume-document">
+          <header class="resume-document-head">
+            <h1>M.S. Logesh</h1><p class="resume-role">UI/UX and Product Designer for Web, Mobile and SaaS Products</p>
+            <p>Trichy, India (open to relocate) · +91 8680818869 · mslogesh26@gmail.com</p>
+            <p><a href="https://linkedin.com/in/logeshms">LinkedIn</a> · <a href="https://behance.net/logeshms">Behance</a> · <a href="https://logeshms.vercel.app">Portfolio</a></p>
+          </header>
+          <section><h2>Professional Summary</h2><p>UI/UX and product designer with over two years of experience designing web, mobile and SaaS products end to end, from user research and wireframes to high-fidelity interactive prototypes and developer handoff in Figma. Delivered 340+ screens and built design systems for corporate, education and home-services clients. Strong in client communication, cross-functional collaboration, branding and graphic design. Computer Science background. Available immediately.</p></section>
+          <section><h2>Skills</h2>
+            <p><b>UX Research and Strategy:</b> Design Thinking, User-Centred Design, User Research, Personas, Storyboarding, User Flows, Journey Maps, Information Architecture, Usability Testing, Heuristic Evaluation, Competitive Analysis, UX Best Practices</p>
+            <p><b>UI and Interaction:</b> UI/UX Design, Interaction Design, Web and App Design, Digital Product Design, Website Design, Dashboard Design, Responsive Design, Visual Design, Design Systems, Wireframing, Interactive Prototypes, Accessibility Standards (WCAG), Developer Handoff</p>
+            <p><b>Process and Collaboration:</b> Design Sprints, Design Reviews, Cross-functional Collaboration, Stakeholder Management, Client Engagement, Storytelling, Creative Decks and Case Study Presentations</p>
+            <p><b>Tools:</b> Figma, FigJam, Framer, Adobe Creative Suite (Photoshop, Illustrator), Microsoft PowerPoint, Microsoft Office, Spline, Lottie Files, Canva, Miro, Jira, Notion, HTML, CSS</p>
+            <p><b>Graphic and Video:</b> Branding, Graphic and Print Design, Social Media Creatives, Logo Design and Alterations, Poster and Carousel Design, Banner Design, Packaging Design, Product Catalogue Design, Business Card and Letterhead Design, Video Editing (CapCut), Videography</p>
+            <p><b>AI Workflow:</b> Claude, ChatGPT, Gemini, Figma AI, Framer AI, Lovable, Magic Patterns, Leonardo AI</p>
+          </section>
+          <section><h2>Experience</h2>
+            <h3>CipherMutex Private Limited, Trichy <span>Sep 2025 – Oct 2026</span></h3><p class="resume-subtitle">UI/UX Designer and Graphic Designer</p>
+            <ul>
+              <li>Delivered digital products and platforms (websites and SaaS dashboards) for four client projects and the company website, as measured by 340+ screens handed to the developer, by applying user research, storyboarding, wireframing and interactive prototyping in Figma.</li>
+              <li>Designed the Vyvess website and Admin, Vendor and Support dashboards for a home-services company, as measured by 70+ screens and client approval in the first review with only minor alterations, by presenting the design rationale in design reviews.</li>
+              <li>Designed 8 websites for Mother Teresa Group of Institutions and the MarsForce corporate website, as measured by 255+ and 7+ screens, by keeping a consistent UI/UX and clear information architecture.</li>
+              <li>Established a consistent UI/UX across dashboards, as measured by 10+ reusable Figma components, by building and maintaining a design system.</li>
+              <li>Understood client needs through discovery sessions and finalised designs within 1–2 month design sprints, working with a developer and management stakeholders (CEO) and applying UX best practices, WCAG accessibility standards, usability testing and heuristic evaluation.</li>
+              <li>Produced brand and product graphics for PebblezApp and Nesswa, as measured by 120+ product designs, plus website banners, catalogues, packaging designs and logo alterations, using Adobe Creative Suite.</li>
+              <li>Maintained one consistent brand identity for CipherMutex, as measured by 100+ poster and carousel designs, print collateral, social media banners and 4+ video shoots with editing.</li>
+              <li>Supported company documentation and the hiring process alongside design work.</li>
+            </ul>
+            <h3>Self-employed, Remote <span>Oct 2024 – Present</span></h3><p class="resume-subtitle">Freelance UI/UX and Creative Designer</p>
+            <ul><li>Delivered websites, UI designs, brand identities and marketing creatives, as measured by 5+ corporate, small-business and education clients served from concept to final output, by managing client engagement from requirements through feedback.</li><li>Created and edited 10+ videos alongside the design work.</li></ul>
+          </section>
+          <section><h2>Internships</h2>
+            <h3>Zidio Development <span>Jun 2025 – Sep 2025</span></h3><p class="resume-subtitle">UI/UX Designer Intern</p><p>Independently designed an e-learning platform end to end, as the only designer on the project, including all user research, wireframes and UI.</p>
+            <h3>Aimnod Services <span>Jun 2025 – Sep 2025</span></h3><p class="resume-subtitle">UI/UX Designer Intern</p><p>Designed 5+ websites independently to client requests, translating requirements into responsive layouts.</p>
+            <h3>Infotact Solutions <span>May 2025 – Aug 2025</span></h3><p class="resume-subtitle">Design Associate L1</p><ul><li>Designed an AR-based e-commerce platform (TryItAR) and a sustainability dashboard (EcoTrace) with a teammate who supported research, delivering user flows, wireframes and high-fidelity screens.</li><li>Published two complete case studies and presentation decks on Behance, focused on usability, clean layouts and structured information architecture.</li></ul>
+            <h3>CodSoft <span>Sep 2024 – Oct 2024</span></h3><p class="resume-subtitle">UI/UX Designer Intern</p><p>Completed 5 task-based UI/UX assignments within one month, submitted on time.</p>
+            <h3>CognoRise InfoTech <span>Jun 2024 – Jul 2024</span></h3><p class="resume-subtitle">UI/UX Designer Intern</p><p>Completed 5 task-based UI/UX assignments within one month, submitted on time.</p>
+          </section>
+          <section><h2>Selected Projects</h2><ul><li><b>Vyvess, multi-role SaaS platform:</b> Website and Admin, Vendor and Support dashboards (70+ screens).</li><li><b>Mother Teresa Group, educational ecosystem:</b> 8 institutional websites (255+ screens).</li><li><b>MarsForce, corporate website:</b> Responsive website with clear information architecture.</li><li><b>PebblezApp and Nesswa, brand and product:</b> Website sections, banners, 120+ product designs, catalogues and packaging.</li></ul></section>
+          <section><h2>Education</h2><h3>B.E. Computer Science and Engineering</h3><p>Dhanalakshmi Srinivasan Institute of Technology, 2019 – 2023 · CGPA 7.84 (First Class), first-generation graduate.</p><h3>UI/UX Design Professional Bootcamp</h3><p>DesignBoat UI/UX School, Bangalore, Jan 2024 – May 2024.</p></section>
+        </article>
+      </div>
+    </div>
+  </section>
+  <script>
+  (() => {
+    const viewer=document.getElementById('resume-viewer');
+    const open=document.getElementById('resume-open');
+    const dialog=viewer?.querySelector('.resume-viewer-dialog');
+    const close=()=>{viewer.classList.remove('is-open');viewer.setAttribute('aria-hidden','true');document.body.classList.remove('resume-viewer-open');open?.focus();};
+    open?.addEventListener('click',e=>{e.preventDefault();viewer.classList.add('is-open');viewer.setAttribute('aria-hidden','false');document.body.classList.add('resume-viewer-open');dialog?.focus();});
+    viewer?.querySelectorAll('[data-resume-close]').forEach(el=>el.addEventListener('click',close));
+    document.getElementById('resume-print')?.addEventListener('click',()=>window.print());
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&viewer?.classList.contains('is-open'))close();});
+  })();
+  </script>
+
   <script src="app.js?v=portfolio-fixes-20261106"></script>
 </body></html>
