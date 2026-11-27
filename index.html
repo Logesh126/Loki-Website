@@ -114,25 +114,25 @@
     <nav class="main-nav" aria-label="Main navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#testimonials">Kind words</a><a href="#contact">Contact</a><a class="resume-nav-link" href="#resume-viewer" id="resume-open" aria-haspopup="dialog">Resume</a></nav>
   </header>
   <main>
-    <section class="hero hero-redesign" id="top">
-  <canvas id="webgl" aria-hidden="true"></canvas>
-  <div class="hero-shade shade" aria-hidden="true"></div>
-  <div class="stage mono" id="stage" aria-label="Hero story progress"><span class="on">01 — Idea</span><span>02 — Complexity</span><span>03 — Clarity</span></div>
-  <div class="hero-ui">
-    <div class="hero-top mono" data-hero-fade><span>Portfolio / 2024—26</span><span>Product design · UI/UX · Visual design</span></div>
-    <h1 class="hero-title">Designing<br>with <em>purpose.</em></h1>
-    <div class="hero-bottom" data-hero-fade>
-      <p class="hero-sub">I'm <b>Logesh</b> — a Product &amp; UI/UX Designer turning complex ideas into clear, useful and meaningful digital experiences.</p>
-      <dl class="meta mono">
-        <dt>Focus</dt><dd>SaaS · Design systems · Brand</dd>
-        <dt>Based</dt><dd>India · Open to relocate</dd>
-        <dt>Local</dt><dd id="clock">IST</dd>
-      </dl>
-      <div class="cue mono"><i></i>Scroll — watch complexity<br>become clarity</div>
+    <section class="hero hero-redesign noir-hero" id="top">
+  <canvas id="noir-rain" aria-hidden="true"></canvas>
+  <div class="noir-city" aria-hidden="true"><div class="city-glow"></div><div class="city-tower tower-a"></div><div class="city-tower tower-b"></div><div class="city-tower tower-c"></div><div class="city-reflection"></div></div>
+  <div class="noir-vignette" aria-hidden="true"></div>
+  <div class="noir-grain" aria-hidden="true"></div>
+  <div class="noir-top mono"><span>MSL / 001</span><span>Independent Product Designer</span><span>India · 2026</span></div>
+  <div class="noir-content">
+    <p class="noir-pretitle"><span></span> A designer's point of view</p>
+    <h1 class="noir-title" aria-label="Logesh"><span class="noir-title-line">LO<span class="noir-accent">G</span>ESH</span></h1>
+    <div class="noir-rule"><span></span><span class="mono">PRODUCT DESIGNER · UI/UX · VISUAL</span><span></span></div>
+    <div class="noir-lower">
+      <p class="noir-tagline">Clarity in every<br><em>interaction.</em></p>
+      <p class="noir-description">I turn complex ideas into focused digital experiences — where every detail has a reason, and every interaction earns its place.</p>
+      <a class="noir-enter" href="#work"><span>Explore selected work</span><b>↗</b></a>
     </div>
   </div>
-  <div class="cap cap-a"><p>Complex ideas,</p><p class="mono">Research · flows · systems · edge cases</p></div>
-  <div class="cap cap-b"><p>made <em>clear.</em></p><p class="mono">340+ screens · 120+ product designs · 8 roles</p></div>
+  <div class="noir-side mono"><span>01</span><i></i><span>SCROLL TO ENTER</span></div>
+  <div class="noir-bottom mono"><span>DESIGN / STRATEGY / EXPERIENCE</span><span>AVAILABLE FOR SELECT PROJECTS &amp; ROLES</span></div>
+  <div class="noir-flash" aria-hidden="true"></div>
 </section>
 
     <section class="intro section-pad" id="about">
@@ -373,106 +373,44 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script type="module">
-(async()=>{
- const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
- const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
- const mobile=innerWidth<768;
- const gl={m1:0,m2:0,intro:1,mx:0,my:0};
- let THREE=null;
- try{THREE=await import('https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js')}catch(e){console.warn('Three.js unavailable',e)}
- if(THREE)initGL();
- function textPoints(word){
-  const c=document.createElement('canvas'),W=1200,H=320;c.width=W;c.height=H;
-  const x=c.getContext('2d');x.fillStyle='#fff';x.textAlign='center';x.textBaseline='middle';
-  x.font='600 250px Geist, sans-serif';x.fillText(word,W/2,H/2+10);
-  const d=x.getImageData(0,0,W,H).data,pts=[];
-  for(let y=0;y<H;y+=3)for(let i=0;i<W;i+=3)if(d[(y*W+i)*4+3]>128)pts.push([i/W-.5,.5-y/H]);
-  return pts.length?pts:[[0,0]];
+(()=>{
+ const canvas=document.getElementById('noir-rain'),hero=document.querySelector('.noir-hero');
+ if(!canvas||!hero)return;
+ const ctx=canvas.getContext('2d');if(!ctx)return;
+ let w=0,h=0,dpr=Math.min(devicePixelRatio||1,1.5),drops=[],raf=0,active=true;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function resize(){
+  w=hero.clientWidth;h=hero.clientHeight;canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
+  canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
+  const count=Math.min(180,Math.floor(w/7));
+  drops=Array.from({length:count},()=>({x:Math.random()*w,y:Math.random()*h,len:8+Math.random()*22,speed:4+Math.random()*9,alpha:.08+Math.random()*.24}));
  }
- function initGL(){
-  const canvas=$('#webgl');let renderer;
-  try{renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:true})}catch(e){return}
-  const PR=Math.min(devicePixelRatio,2);renderer.setPixelRatio(PR);
-  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(35,1,.1,100);camera.position.z=11;
-  const N=mobile?9000:20000,TW=7.6,TH=TW*(320/1200);
-  const pos=new Float32Array(N*3),knot=new Float32Array(N*3),txt=new Float32Array(N*3),dir=new Float32Array(N*3),rnd=new Float32Array(N);
-  const tp=textPoints('LOGESH');
-  for(let i=0;i<N;i++){
-   const k=i+.5,phi=Math.acos(1-2*k/N),th=Math.PI*(1+Math.sqrt(5))*k;
-   const r=2.1*(Math.random()<.85?1:Math.cbrt(Math.random()));
-   pos.set([r*Math.cos(th)*Math.sin(phi),r*Math.sin(th)*Math.sin(phi),r*Math.cos(phi)],i*3);
-   const t=Math.random()*Math.PI*2,rr=(2+Math.cos(3*t))*.62,tube=.32*Math.sqrt(Math.random()),a=Math.random()*Math.PI*2,b=Math.random()*Math.PI*2;
-   knot.set([rr*Math.cos(2*t)+tube*Math.cos(a)*Math.sin(b),rr*Math.sin(2*t)+tube*Math.sin(a)*Math.sin(b),Math.sin(3*t)*.62+tube*Math.cos(b)],i*3);
-   const s=tp[(Math.random()*tp.length)|0];
-   txt.set([s[0]*TW+(Math.random()-.5)*.02,s[1]*TH+(Math.random()-.5)*.02,(Math.random()-.5)*.15],i*3);
-   const u=Math.random()*2-1,w=Math.random()*Math.PI*2,sq=Math.sqrt(1-u*u);
-   dir.set([sq*Math.cos(w),sq*Math.sin(w),u],i*3);rnd[i]=Math.random();
+ function draw(){
+  raf=requestAnimationFrame(draw);if(!active)return;
+  ctx.clearRect(0,0,w,h);
+  for(const p of drops){
+   ctx.strokeStyle='rgba(177,197,211,'+p.alpha+')';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x-2,p.y+p.len);ctx.stroke();
+   p.y+=p.speed;p.x-=.7;
+   if(p.y>h+25){p.y=-30;p.x=Math.random()*w}
   }
-  const geo=new THREE.BufferGeometry();
-  geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  geo.setAttribute('aKnot',new THREE.BufferAttribute(knot,3));
-  geo.setAttribute('aText',new THREE.BufferAttribute(txt,3));
-  geo.setAttribute('aDir',new THREE.BufferAttribute(dir,3));
-  geo.setAttribute('aRand',new THREE.BufferAttribute(rnd,1));
-  const U={uTime:{value:0},uM1:{value:0},uM2:{value:0},uIntro:{value:1},uRot:{value:0},uSize:{value:mobile?46:38},uPR:{value:PR},uShapeScale:{value:1},uTextScale:{value:1},uOffA:{value:new THREE.Vector2()},uOffB:{value:new THREE.Vector2()},uMouse:{value:new THREE.Vector3(99,99,0)},uC1:{value:new THREE.Vector3(.925,.91,.88)},uC2:{value:new THREE.Vector3(1,.3,.11)}};
-  const mat=new THREE.ShaderMaterial({uniforms:U,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
-   vertexShader:`
-    uniform float uTime,uM1,uM2,uIntro,uSize,uPR,uRot,uShapeScale,uTextScale;
-    uniform vec2 uOffA,uOffB;uniform vec3 uMouse;
-    attribute vec3 aKnot,aText,aDir;attribute float aRand;
-    varying float vRand,vGlow,vAlpha;
-    mat3 rotY(float a){float c=cos(a),s=sin(a);return mat3(c,0.,-s,0.,1.,0.,s,0.,c);}
-    mat3 rotX(float a){float c=cos(a),s=sin(a);return mat3(1.,0.,0.,0.,c,s,0.,-s,c);}
-    void main(){
-     float t=uTime;vec3 a=position;
-     float n=sin(a.x*1.6+t*.7)*sin(a.y*1.9+t*.5)*sin(a.z*1.4+t*.6);
-     a*=1.+n*.22;
-     vec3 shape=rotY(uRot)*rotX(uRot*.35)*mix(a,aKnot,uM1)*uShapeScale;shape.xy+=uOffA;
-     vec3 word=aText*uTextScale;word.xy+=uOffB;
-     vec3 p=mix(shape,word,uM2);
-     float burst=sin(uM1*3.14159)+sin(uM2*3.14159);
-     p+=aDir*burst*(.4+aRand*.9);
-     p+=vec3(sin(t*.8+aRand*20.),cos(t*.7+aRand*17.),sin(t*.6+aRand*11.))*.015*(1.+(1.-uM2)*2.);
-     p+=aDir*uIntro*(6.+aRand*6.);
-     vec3 d=p-uMouse;float f=1.-smoothstep(0.,1.3,length(d.xy));
-     p.xy+=normalize(d.xy+vec2(.0001))*f*.55;p.z+=f*.6;
-     vGlow=f;vRand=aRand;vAlpha=.4+.6*smoothstep(-2.5,2.5,p.z);
-     vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;gl_PointSize=uSize*(.5+aRand)*uPR/-mv.z;
-    }`,
-   fragmentShader:`
-    uniform vec3 uC1,uC2;varying float vRand,vGlow,vAlpha;
-    void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;vec3 col=mix(vec3(.925,.91,.88),vec3(1.,.3,.11),step(.84,vRand));col=mix(col,vec3(1.,.3,.11),vGlow*.9);gl_FragColor=vec4(col,smoothstep(.5,0.,d)*vAlpha*.85);}
-   `});
-  const points=new THREE.Points(geo,mat);points.frustumCulled=false;scene.add(points);
-  let halfW=1,halfH=1;
-  function layout(){const w=canvas.clientWidth||innerWidth,h=canvas.clientHeight||innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();halfH=camera.position.z*Math.tan(THREE.MathUtils.degToRad(camera.fov/2));halfW=halfH*camera.aspect;const wide=camera.aspect>1.1;U.uShapeScale.value=wide?Math.min(1,halfH/2.9):Math.min(.9,halfW/2.4);U.uOffA.value.set(wide?halfW*.38:0,wide?.25:.7);U.uTextScale.value=Math.min(1,(halfW*1.75)/TW);U.uOffB.value.set(0,wide?.45:.6)}
-  layout();addEventListener('resize',layout);
-  const mouse=new THREE.Vector3(99,99,0),mT=new THREE.Vector3(99,99,0);
-  addEventListener('pointermove',e=>{gl.mx=e.clientX/innerWidth*2-1;gl.my=-(e.clientY/innerHeight)*2+1;mT.set(gl.mx*halfW,gl.my*halfH,0)},{passive:true});
-  document.addEventListener('pointerleave',()=>mT.set(99,99,0));
-  let running=true,spin=0;const timer=new THREE.Clock();
-  new IntersectionObserver(([e])=>running=e.isIntersecting).observe($('.hero'));
-  (function frame(){requestAnimationFrame(frame);if(!running)return;spin+=.0025+Math.min(Math.abs(window.scrollY-lastScroll),60)*.00002;camera.position.x+=(gl.mx*.35-camera.position.x)*.04;camera.position.y+=(gl.my*.25-camera.position.y)*.04;camera.lookAt(0,0,0);mouse.lerp(mT,.12);U.uTime.value=timer.getElapsedTime();U.uRot.value=spin;U.uM1.value=gl.m1;U.uM2.value=gl.m2;U.uIntro.value=gl.intro;U.uMouse.value.copy(mouse);renderer.render(scene,camera)})();
  }
- let lastScroll=window.scrollY;addEventListener('scroll',()=>lastScroll=window.scrollY,{passive:true});
- const stageEls=$$('#stage span'),setStage=i=>stageEls.forEach((s,j)=>s.classList.toggle('on',j===i));
- if(!reduce&&window.gsap&&window.ScrollTrigger){
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:'+=220%',pin:true,scrub:1,refreshPriority:2,onUpdate:s=>setStage(s.progress<.33?0:s.progress<.7?1:2)}})
-   .to('.hero-ui',{autoAlpha:0,y:-80,ease:'none',duration:.18},0)
-   .to(gl,{m1:1,ease:'power2.inOut',duration:.3},.08)
-   .fromTo('.cap-a',{autoAlpha:0,y:50},{autoAlpha:1,y:0,duration:.12},.3)
-   .to('.cap-a',{autoAlpha:0,y:-50,duration:.1},.5)
-   .to(gl,{m2:1,ease:'power2.inOut',duration:.3},.5)
-   .fromTo('.cap-b',{autoAlpha:0,y:50},{autoAlpha:1,y:0,duration:.12},.76);
- }else{
-  addEventListener('scroll',()=>{const h=$('.hero').getBoundingClientRect(),p=Math.max(0,Math.min(1,-h.top/Math.max(1,h.height)));gl.m1=Math.min(1,p*2);gl.m2=Math.max(0,(p-.5)*2);setStage(p<.33?0:p<.7?1:2)},{passive:true});
- }
- const greetings=['Hello','வணக்கம்','नमस्ते','Hola','Bonjour','Ciao','Hello'];
- const loader=document.querySelector('.site-loader .loader-greeting');
- if(loader){let i=0;const timer=setInterval(()=>{i++;if(i>=greetings.length){clearInterval(timer);return}loader.textContent=greetings[i]},350)}
- const clock=$('#clock');if(clock){const update=()=>clock.textContent=new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',hour12:true}).format(new Date())+' IST';update();setInterval(update,60000)}
- if(!reduce&&window.gsap){gsap.to(gl,{intro:0,duration:2.8,delay:.25,ease:'expo.out'});gsap.from('.hero-title',{y:45,opacity:0,duration:1.1,ease:'power3.out',delay:.2});gsap.from('[data-hero-fade],#stage',{y:20,opacity:0,duration:.9,stagger:.12,ease:'power3.out',delay:.55})}
+ resize();addEventListener('resize',resize,{passive:true});
+ new IntersectionObserver(([e])=>{active=e.isIntersecting;if(active&&!raf)draw()}).observe(hero);
+ if(!reduced)draw();
+ const reveal=()=>{
+  hero.classList.add('noir-ready');
+  if(window.gsap&&!reduced){
+   gsap.from('.noir-top span',{y:14,opacity:0,duration:1,stagger:.12,ease:'power2.out'});
+   gsap.from('.noir-pretitle',{y:18,opacity:0,duration:.9,delay:.25,ease:'power3.out'});
+   gsap.from('.noir-title-line',{yPercent:110,opacity:0,duration:1.5,delay:.35,ease:'expo.out'});
+   gsap.from('.noir-rule,.noir-lower > *',{y:22,opacity:0,duration:1,delay:.85,stagger:.13,ease:'power3.out'});
+   gsap.from('.noir-bottom,.noir-side',{opacity:0,duration:1,delay:1.2});
+   gsap.to('.city-glow',{opacity:.8,duration:3,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  }
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',reveal,{once:true});else reveal();
+ const clock=()=>{const el=document.getElementById('clock');if(el)el.textContent=new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',hour12:true}).format(new Date())+' IST'};
+ clock();setInterval(clock,60000);
 })();
 </script>
 </body></html>
