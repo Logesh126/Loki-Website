@@ -24,7 +24,7 @@
   <title>Logesh | Product Designer & UI/UX Designer in India</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=resume-viewer-20261126">
+  <link rel="stylesheet" href="style.css?v=noir-sync-20261127">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://logeshms.vercel.app/#person","name":"Logesh","alternateName":"M.S. Logesh","jobTitle":"Product Designer and UI/UX Designer","description":"Product Designer specialising in SaaS products, UX, design systems and brand identity.","url":"https://logeshms.vercel.app/","image":"https://logeshms.vercel.app/asset-0545.jpg","sameAs":["https://www.behance.net/logeshms","https://www.linkedin.com/in/logeshms","https://www.instagram.com/Loki_design1/"],"knowsAbout":["Product design","UI/UX design","User experience design","SaaS design","UX research","Design systems","Information architecture","Prototyping","Branding","Visual design"]}</script>
   <style id="loader-critical">
   html.loader-active,html.loader-active body{overflow:hidden!important;background:#09090d!important}
@@ -368,7 +368,7 @@
   })();
   </script>
 
-  <script src="app.js?v=portfolio-fixes-20261106"></script>
+  <script src="app.js?v=noir-sync-20261127"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
@@ -396,7 +396,7 @@
  }
  resize();addEventListener('resize',resize,{passive:true});
  new IntersectionObserver(([e])=>{active=e.isIntersecting;if(active&&!raf)draw()}).observe(hero);
- if(!reduced)draw();
+ if(!reduced)draw();else{ctx.clearRect(0,0,w,h);for(const p of drops){ctx.strokeStyle='rgba(177,197,211,'+Math.min(.32,p.alpha*1.8)+')';ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x-2,p.y+p.len);ctx.stroke();}}
  const reveal=()=>{
   hero.classList.add('noir-ready');
   if(window.gsap&&!reduced){
