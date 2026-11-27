@@ -1187,7 +1187,7 @@ footer{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-sp
 
 /* CINEMATIC NOIR HERO — original neo-noir atmosphere */
 .noir-hero{height:100svh;min-height:680px;position:relative;overflow:hidden;isolation:isolate;background:#05080d;color:#e8e5df}
-.noir-hero #noir-rain{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.72}
+.noir-hero #noir-rain{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.9}
 .noir-city{position:absolute;inset:0;z-index:0;overflow:hidden;background:radial-gradient(ellipse at 72% 43%,rgba(33,62,79,.32),transparent 42%),linear-gradient(112deg,#05080d 4%,#0b1119 52%,#101820 100%)}
 .city-glow{position:absolute;width:55vw;height:55vw;right:3%;top:0;border-radius:50%;background:radial-gradient(circle,rgba(173,50,39,.18),rgba(37,92,116,.09) 32%,transparent 68%);filter:blur(24px);opacity:.5}
 .city-tower{position:absolute;bottom:14%;background:linear-gradient(90deg,rgba(7,13,19,.95),rgba(16,28,38,.78),rgba(4,8,13,.96));border-top:1px solid rgba(180,205,220,.12);box-shadow:inset 0 0 40px rgba(0,0,0,.8)}
