@@ -1446,3 +1446,14 @@ a:hover{color:#9d83e9}
 @keyframes audio-pulse{50%{opacity:.4;transform:scale(.8)}}
 .noir-hero.gotham-hero .noir-tagline{white-space:nowrap;font-size:clamp(1.65rem,2.8vw,2.5rem);line-height:1.1}
 @media(max-width:760px){.noir-audio-toggle{right:5vw;bottom:42px}.noir-hero.gotham-hero .noir-tagline{font-size:clamp(1.5rem,6vw,2rem);white-space:normal}}
+
+/* Compact icon-only soundtrack control */
+.noir-audio-toggle{width:44px;height:44px;padding:0;display:grid;place-items:center;border-radius:50%;background:rgba(8,7,15,.62);border:1px solid rgba(185,162,255,.55);color:#d8caff;backdrop-filter:blur(12px)}
+.noir-audio-toggle .audio-icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.noir-audio-toggle .audio-speaker{fill:currentColor;stroke:none}
+.noir-audio-toggle .audio-wave{display:none}
+.noir-audio-toggle .audio-mute{display:block}
+.noir-audio-toggle[aria-pressed="true"] .audio-wave{display:block}
+.noir-audio-toggle[aria-pressed="true"] .audio-mute{display:none}
+.noir-audio-toggle[aria-pressed="true"]{color:#cbbaff;box-shadow:0 0 18px rgba(157,131,233,.28)}
+.noir-audio-toggle .audio-label{display:none}
