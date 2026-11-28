@@ -1370,3 +1370,23 @@ footer{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-sp
  .noir-hero.gotham-hero .noir-tagline{font-size:2rem}
  .noir-hero.gotham-hero .noir-description{font-size:13px}
 }
+
+/* FINAL SPACING TUNE — align hero copy to the page margin */
+.noir-hero.gotham-hero .noir-content{
+  width:min(760px,88vw);max-width:760px;
+  margin-left:5vw;margin-right:auto;
+  padding-left:0;padding-right:0;
+  align-items:flex-start;text-align:left;
+}
+.noir-hero.gotham-hero .noir-pretitle{
+  font-size:13px;line-height:1.4;letter-spacing:.18em;
+  margin:0 0 24px;padding:0;
+  width:100%;text-align:left;justify-content:flex-start;
+}
+.noir-hero.gotham-hero .noir-title,
+.noir-hero.gotham-hero .noir-rule,
+.noir-hero.gotham-hero .noir-lower{margin-left:0;text-align:left;align-self:flex-start}
+@media(max-width:760px){
+ .noir-hero.gotham-hero .noir-content{width:90vw;max-width:90vw;margin-left:5vw;margin-right:5vw}
+ .noir-hero.gotham-hero .noir-pretitle{font-size:12px;letter-spacing:.14em}
+}
