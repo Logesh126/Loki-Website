@@ -1390,3 +1390,40 @@ footer{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-sp
  .noir-hero.gotham-hero .noir-content{width:90vw;max-width:90vw;margin-left:5vw;margin-right:5vw}
  .noir-hero.gotham-hero .noir-pretitle{font-size:12px;letter-spacing:.14em}
 }
+
+/* STRICT ALIGNMENT: hero copy shares exact left anchor with bottom credit */
+.noir-hero.gotham-hero .noir-content{
+  position:relative!important;
+  left:auto!important;right:auto!important;
+  transform:none!important;
+  width: min(760px, 90vw)!important;
+  max-width:760px!important;
+  margin:0 0 0 5vw!important;
+  padding-left:0!important;padding-right:0!important;
+  align-items:flex-start!important;
+  text-align:left!important;
+}
+.noir-hero.gotham-hero .noir-pretitle{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  width:100%!important;
+  margin:0 0 22px!important;
+  padding:0!important;
+  font-size:13px!important;
+  line-height:1.4!important;
+  letter-spacing:.14em!important;
+  text-align:left!important;
+}
+.noir-hero.gotham-hero .noir-title,
+.noir-hero.gotham-hero .noir-rule,
+.noir-hero.gotham-hero .noir-lower{
+  margin-left:0!important;
+  padding-left:0!important;
+  align-self:flex-start!important;
+  text-align:left!important;
+}
+@media(max-width:760px){
+ .noir-hero.gotham-hero .noir-content{width:90vw!important;margin-left:5vw!important;margin-right:0!important}
+ .noir-hero.gotham-hero .noir-pretitle{font-size:12px!important;letter-spacing:.12em!important}
+}
