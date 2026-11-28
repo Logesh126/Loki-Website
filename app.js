@@ -116,57 +116,30 @@
  }
 
 
- // Original cinematic noir ambience — generated in-browser, starts only after user intent.
+ 
+ // Original generated cinematic hero score (instrumental).
  const scoreButton=document.querySelector('.noir-audio-toggle');
  if(scoreButton){
-   let scoreContext=null,scoreNodes=[],scoreTimer=null,scoreStep=0;
-   const setAudioState=playing=>{
+   const scoreAudio=new Audio('https://gcdn.picsart.com/editing-temp/fd89f5fe-5c80-412c-ac67-08473781b254.mp3');
+   scoreAudio.loop=true;
+   scoreAudio.preload='none';
+   scoreAudio.volume=0.88;
+   const label=scoreButton.querySelector('.audio-label');
+   const setState=playing=>{
      scoreButton.setAttribute('aria-pressed',String(playing));
-     scoreButton.querySelector('.audio-label').textContent=playing?'SOUND ON':'SOUND OFF';
-     scoreButton.setAttribute('aria-label',playing?'Pause cinematic ambience':'Play cinematic ambience');
+     if(label)label.textContent=playing?'SOUND ON':'SOUND OFF';
+     scoreButton.setAttribute('aria-label',playing?'Pause cinematic soundtrack':'Play cinematic soundtrack');
    };
-   const makeScore=()=>{
-     const AudioCtx=window.AudioContext||window.webkitAudioContext;
-     if(!AudioCtx)return false;
-     scoreContext=new AudioCtx();
-     const master=scoreContext.createGain();master.gain.value=.0001;master.connect(scoreContext.destination);
-     const compressor=scoreContext.createDynamicsCompressor();compressor.threshold.value=-22;compressor.knee.value=18;compressor.ratio.value=3;compressor.attack.value=.04;compressor.release.value=.4;master.connect(compressor);compressor.connect(scoreContext.destination);
-     const lowpass=scoreContext.createBiquadFilter();lowpass.type='lowpass';lowpass.frequency.value=680;lowpass.Q.value=.7;lowpass.connect(master);
-     const padGain=scoreContext.createGain();padGain.gain.value=.42;padGain.connect(lowpass);
-     // Deep, slow minor-key harmonic bed; original notes, not a sampled film score.
-     const chords=[[73.42,110,146.83],[58.27,87.31,116.54],[65.41,98,130.81],[55,82.41,110]];
-     chords[0].forEach((freq,i)=>{
-       const osc=scoreContext.createOscillator();osc.type=i===0?'sine':'triangle';osc.frequency.value=freq;
-       const g=scoreContext.createGain();g.gain.value=i===0?.72:.32;osc.connect(g);g.connect(padGain);osc.start();scoreNodes.push(osc,g);
-     });
-     const bass=scoreContext.createOscillator();bass.type='sine';bass.frequency.value=36.71;
-     const bassGain=scoreContext.createGain();bassGain.gain.value=.48;bass.connect(bassGain);bassGain.connect(master);bass.start();scoreNodes.push(bass,bassGain);
-     const subLfo=scoreContext.createOscillator();subLfo.frequency.value=.16;
-     const lfoGain=scoreContext.createGain();lfoGain.gain.value=4;subLfo.connect(lfoGain);lfoGain.connect(bass.frequency);subLfo.start();scoreNodes.push(subLfo,lfoGain);
-     // A restrained high, glassy motif that cycles independently of any existing soundtrack.
-     const motif=[293.66,349.23,440,392,293.66,261.63,349.23,329.63];
-     const playNote=()=>{
-       if(!scoreContext||scoreContext.state!=='running')return;
-       const now=scoreContext.currentTime;
-       const freq=motif[scoreStep%motif.length];scoreStep++;
-       const osc=scoreContext.createOscillator();osc.type='sine';osc.frequency.setValueAtTime(freq,now);
-       const env=scoreContext.createGain();env.gain.setValueAtTime(.0001,now);env.gain.exponentialRampToValueAtTime(.11,now+.16);env.gain.exponentialRampToValueAtTime(.0001,now+2.1);
-       const tone=scoreContext.createBiquadFilter();tone.type='lowpass';tone.frequency.value=1150;
-       osc.connect(tone);tone.connect(env);env.connect(master);osc.start(now);osc.stop(now+2.2);
-     };
-     scoreTimer=window.setInterval(playNote,1900);
-     master.gain.setTargetAtTime(.82,scoreContext.currentTime,1.2);
-     playNote();
-     return true;
-   };
+   scoreAudio.addEventListener('error',()=>{setState(false);if(label)label.textContent='AUDIO UNAVAILABLE';});
    scoreButton.addEventListener('click',async()=>{
      try{
-       if(!scoreContext){if(!makeScore())return;await scoreContext.resume();setAudioState(true);}
-       else if(scoreContext.state==='running'){await scoreContext.suspend();setAudioState(false);}
-       else{await scoreContext.resume();setAudioState(true);}
-     }catch(error){setAudioState(false);}
+       if(scoreAudio.paused){await scoreAudio.play();setState(true);}
+       else{scoreAudio.pause();setState(false);}
+     }catch(error){setState(false);if(label)label.textContent='TAP TO RETRY';}
    });
-   window.addEventListener('pagehide',()=>{if(scoreTimer)window.clearInterval(scoreTimer);if(scoreContext)scoreContext.close();},{once:true});
+   scoreAudio.addEventListener('ended',()=>setState(false));
+   window.addEventListener('pagehide',()=>{scoreAudio.pause();scoreAudio.src='';},{once:true});
  }
+
 
 })();
