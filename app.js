@@ -132,17 +132,17 @@
      const master=scoreContext.createGain();master.gain.value=.0001;master.connect(scoreContext.destination);
      const compressor=scoreContext.createDynamicsCompressor();compressor.threshold.value=-22;compressor.knee.value=18;compressor.ratio.value=3;compressor.attack.value=.04;compressor.release.value=.4;master.connect(compressor);compressor.connect(scoreContext.destination);
      const lowpass=scoreContext.createBiquadFilter();lowpass.type='lowpass';lowpass.frequency.value=680;lowpass.Q.value=.7;lowpass.connect(master);
-     const padGain=scoreContext.createGain();padGain.gain.value=.18;padGain.connect(lowpass);
+     const padGain=scoreContext.createGain();padGain.gain.value=.42;padGain.connect(lowpass);
      // Deep, slow minor-key harmonic bed; original notes, not a sampled film score.
      const chords=[[73.42,110,146.83],[58.27,87.31,116.54],[65.41,98,130.81],[55,82.41,110]];
      chords[0].forEach((freq,i)=>{
        const osc=scoreContext.createOscillator();osc.type=i===0?'sine':'triangle';osc.frequency.value=freq;
-       const g=scoreContext.createGain();g.gain.value=i===0?.5:.18;osc.connect(g);g.connect(padGain);osc.start();scoreNodes.push(osc,g);
+       const g=scoreContext.createGain();g.gain.value=i===0?.72:.32;osc.connect(g);g.connect(padGain);osc.start();scoreNodes.push(osc,g);
      });
      const bass=scoreContext.createOscillator();bass.type='sine';bass.frequency.value=36.71;
-     const bassGain=scoreContext.createGain();bassGain.gain.value=.32;bass.connect(bassGain);bassGain.connect(master);bass.start();scoreNodes.push(bass,bassGain);
+     const bassGain=scoreContext.createGain();bassGain.gain.value=.48;bass.connect(bassGain);bassGain.connect(master);bass.start();scoreNodes.push(bass,bassGain);
      const subLfo=scoreContext.createOscillator();subLfo.frequency.value=.16;
-     const lfoGain=scoreContext.createGain();lfoGain.gain.value=7;subLfo.connect(lfoGain);lfoGain.connect(bass.frequency);subLfo.start();scoreNodes.push(subLfo,lfoGain);
+     const lfoGain=scoreContext.createGain();lfoGain.gain.value=4;subLfo.connect(lfoGain);lfoGain.connect(bass.frequency);subLfo.start();scoreNodes.push(subLfo,lfoGain);
      // A restrained high, glassy motif that cycles independently of any existing soundtrack.
      const motif=[293.66,349.23,440,392,293.66,261.63,349.23,329.63];
      const playNote=()=>{
@@ -150,12 +150,12 @@
        const now=scoreContext.currentTime;
        const freq=motif[scoreStep%motif.length];scoreStep++;
        const osc=scoreContext.createOscillator();osc.type='sine';osc.frequency.setValueAtTime(freq,now);
-       const env=scoreContext.createGain();env.gain.setValueAtTime(.0001,now);env.gain.exponentialRampToValueAtTime(.035,now+.16);env.gain.exponentialRampToValueAtTime(.0001,now+2.1);
+       const env=scoreContext.createGain();env.gain.setValueAtTime(.0001,now);env.gain.exponentialRampToValueAtTime(.11,now+.16);env.gain.exponentialRampToValueAtTime(.0001,now+2.1);
        const tone=scoreContext.createBiquadFilter();tone.type='lowpass';tone.frequency.value=1150;
        osc.connect(tone);tone.connect(env);env.connect(master);osc.start(now);osc.stop(now+2.2);
      };
      scoreTimer=window.setInterval(playNote,1900);
-     master.gain.setTargetAtTime(.34,scoreContext.currentTime,1.8);
+     master.gain.setTargetAtTime(.82,scoreContext.currentTime,1.2);
      playNote();
      return true;
    };
