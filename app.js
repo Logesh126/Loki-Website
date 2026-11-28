@@ -124,18 +124,17 @@
    scoreAudio.loop=true;
    scoreAudio.preload='none';
    scoreAudio.volume=0.88;
-   const label=scoreButton.querySelector('.audio-label');
    const setState=playing=>{
      scoreButton.setAttribute('aria-pressed',String(playing));
-     if(label)label.textContent=playing?'SOUND ON':'SOUND OFF';
      scoreButton.setAttribute('aria-label',playing?'Pause cinematic soundtrack':'Play cinematic soundtrack');
+     scoreButton.title=playing?'Pause cinematic soundtrack':'Play cinematic soundtrack';
    };
-   scoreAudio.addEventListener('error',()=>{setState(false);if(label)label.textContent='AUDIO UNAVAILABLE';});
+   scoreAudio.addEventListener('error',()=>{setState(false);});
    scoreButton.addEventListener('click',async()=>{
      try{
        if(scoreAudio.paused){await scoreAudio.play();setState(true);}
        else{scoreAudio.pause();setState(false);}
-     }catch(error){setState(false);if(label)label.textContent='TAP TO RETRY';}
+     }catch(error){setState(false);}
    });
    scoreAudio.addEventListener('ended',()=>setState(false));
    window.addEventListener('pagehide',()=>{scoreAudio.pause();scoreAudio.src='';},{once:true});
